@@ -27,8 +27,22 @@ public class itemInteraction : MonoBehaviour
         }
 
         //if in door area
+        if (collision.CompareTag("door"))
+        {
+            canTryDoor = true;
+            print("In door");
+        }
 
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //if in door area
+        if (collision.CompareTag("door"))
+        {
+            canTryDoor = false;
+            print("leave door");
+        }
     }
 
 }
