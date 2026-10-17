@@ -16,7 +16,7 @@ public class testMove : MonoBehaviour
     {
 
         movementInput.x = Input.GetAxisRaw("Horizontal");
-        movementInput.y = Input.GetAxisRaw("Vertical");
+        //movementInput.y = Input.GetAxisRaw("Vertical");
 
 
         movementInput = movementInput.normalized;
