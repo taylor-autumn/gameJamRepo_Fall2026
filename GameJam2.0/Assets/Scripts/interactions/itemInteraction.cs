@@ -14,7 +14,10 @@ public class itemInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E) && hasKeyCard && canTryDoor)
+        {
+            print("openDoor");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +27,7 @@ public class itemInteraction : MonoBehaviour
         {
             Destroy(collision.gameObject);
             print("Picked up keycard");
+            hasKeyCard = true;
         }
 
         //if in door area
