@@ -19,11 +19,16 @@ public class itemInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //if collides with keycard
         if (collision.CompareTag("keyCard"))
         {
             Destroy(collision.gameObject);
             print("Picked up keycard");
         }
+
+        //if in door area
+
+
     }
 
 }
