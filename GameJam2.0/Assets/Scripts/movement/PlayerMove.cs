@@ -1,21 +1,14 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
-    // Input
-    [SerializeField] private InputActionReference moveAction;
-    [SerializeField] private InputActionReference jumpAction;
-    [SerializeField] private InputActionReference dashAction;
-    [SerializeField] private InputActionReference climbAction;
-
     // Components
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     [SerializeField] private Collider2D coll;
-    [SerializeField] private CapsuleCollider2D bodyColl;
-    [SerializeField] private SpriteRenderer sr;
+    //[SerializeField] private CapsuleCollider2D bodyColl;
+    //[SerializeField] private SpriteRenderer sr;
 
     // Movement
     [SerializeField] private float moveSpeed = 5f;
@@ -71,6 +64,7 @@ public class PlayerMove : MonoBehaviour
     public Vector3 reSpawnPos;
     public int dieTime = 0;
     [SerializeField] private GameObject dieTimeText;
+    [SerializeField] private GameObject highScore;
     [SerializeField] private Text highScoreText;
     [SerializeField] private GameObject button;
     private Vector3 lobbyButtonPos;
@@ -90,7 +84,21 @@ public class PlayerMove : MonoBehaviour
     public PolygonCollider2D currentRoom;
     public int score = 0;
     public GameObject scoreText;
-    public GameObject highScore;
+
+    private void Start()
+    {
+        //lobbyButtonPos = button.transform.position;
+        //button.transform.position += new Vector3(1000, 1000, 1000);
+        //highScoreText = highScore.GetComponent<Text>();
+        //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
+
+        //highScoreText.text = "Least Dead: " + PlayerPrefs.GetInt("HighScore", 999);
+        //if (PlayerPrefs.GetInt("HighScore", 999) == 999)
+        //{
+        //    highScoreText.text = "Least Dead: ";
+        //}
+        //bgm.Play();
+    }
 
     private void Update()
     {
@@ -103,10 +111,10 @@ public class PlayerMove : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.R))
-        {
-            PlayerPrefs.DeleteKey("HighScore");
-        }
+        //if (Input.GetKey(KeyCode.R))
+        //{
+        //    PlayerPrefs.DeleteKey("HighScore");
+        //}
 
         JumpPressed = Input.GetButtonDown("Jump");
 
@@ -154,9 +162,12 @@ public class PlayerMove : MonoBehaviour
 
     private void Movement()
     {
-        horizontalMove = moveAction.action.ReadValue<Vector2>().x;
-        float faceDirection = horizontalMove;
-        float faceDirectionAir = horizontalMove;
+        horizontalMove = Input.GetAxis("Horizontal");
+        float faceDirection = Input.GetAxisRaw("Horizontal");
+        float faceDirectionAir = Input.GetAxisRaw("Air Horizontal");
+        Debug.Log(horizontalMove);
+        Debug.Log(faceDirection);
+        Debug.Log(faceDirectionAir);
 
         if (CanMove)
         {
@@ -166,7 +177,7 @@ public class PlayerMove : MonoBehaviour
                 {
                     if (horizontalMove != 0)
                     {
-                        anim.SetFloat("Running", Mathf.Abs(horizontalMove));
+                        //anim.SetFloat("Running", Mathf.Abs(horizontalMove));
                         rb.linearVelocity = new Vector2((horizontalMove * moveSpeed * Time.fixedDeltaTime), rb.linearVelocity.y);
                     }
                 }
@@ -174,8 +185,7 @@ public class PlayerMove : MonoBehaviour
                 {
                     horizontalMove = Input.GetAxis("Air Horizontal");
                     rb.linearVelocity = new Vector2(horizontalMove * moveSpeed * Time.fixedDeltaTime, rb.linearVelocity.y);
-
-                    anim.SetFloat("Running", Mathf.Abs(horizontalMove));
+                    //anim.SetFloat("Running", Mathf.Abs(horizontalMove));
                 }
 
                 if (faceDirection != 0 && faceDirectionAir != 0)
@@ -188,17 +198,17 @@ public class PlayerMove : MonoBehaviour
 
     private void JumpAnimation()
     {
-        anim.SetBool("OnTheGround", false);
+        //anim.SetBool("OnTheGround", false);
         OnGround = false;
         AbleToJump = false;
-        anim.SetFloat("VerticalSpeed", rb.linearVelocity.y);
+        //anim.SetFloat("VerticalSpeed", rb.linearVelocity.y);
 
         if (coll.IsTouchingLayers(ground))
         {
             AbleToJump = true;
             OnGround = true;
-            sr.color = normalColor;
-            anim.SetBool("OnTheGround", true);
+            //sr.color = normalColor;
+            //anim.SetBool("OnTheGround", true);
             if (DuringDash)
             {
                 AbleToDash = false;
@@ -213,12 +223,12 @@ public class PlayerMove : MonoBehaviour
         {
             if (DuringClimbing)
             {
-                anim.SetBool("DuringClimbing", true);
+                //anim.SetBool("DuringClimbing", true);
             }
         }
         else
         {
-            anim.SetBool("DuringClimbing", false);
+            //anim.SetBool("DuringClimbing", false);
         }
     }
 
@@ -228,7 +238,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (AbleToJump && !IsJump)
             {
-                jump.Play();
+                //jump.Play();
                 IsJump = true;
                 OnGround = false;
 
@@ -256,7 +266,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (jumpAction.action.WasPressedThisFrame())
+        if (Input.GetButtonUp("Jump"))
         {
             coyoteTimeCounter = 0f;
         }
@@ -266,7 +276,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (rb.linearVelocity.y <= 0)
         {
-            anim.SetFloat("VerticalSpeed", -0.1f);
+            //anim.SetFloat("VerticalSpeed", -0.1f);
             AbleToClimb = true;
         }
 
@@ -318,7 +328,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (WallCollide && !OnGround)
         {
-            if ((Input.GetKey(oppositeFaceDirKey) && jumpAction.action.IsPressed()) || jumpAction.action.WasPressedThisFrame() && !Input.GetKey(KeyCode.Z))
+            if ((Input.GetKey(oppositeFaceDirKey) && Input.GetButtonDown("Jump")) || (Input.GetButtonDown("Jump") && !Input.GetKey(KeyCode.Z)))
             {
                 jump.Play();
                 DuringWallJump = true;
@@ -413,7 +423,7 @@ public class PlayerMove : MonoBehaviour
 
             currentDashDire = dashDire;
             SqueezeVertical();
-            sr.color = noDashColor;
+            //sr.color = noDashColor;
         }
         else if (DuringDash)
         {
@@ -457,12 +467,12 @@ public class PlayerMove : MonoBehaviour
     {
         if (DuringDash)
         {
-            bodyColl.size = bodySqueezeSize;
+            transform.localScale = bodySqueezeSize;
             transform.localScale = new Vector3(transform.localScale.x, squeezeAmount, 1);
         }
         else
         {
-            bodyColl.size = bodySize;
+            transform.localScale = bodySize;
             transform.localScale = new Vector3(transform.localScale.x, 1, 1);
         }
     }
@@ -477,7 +487,7 @@ public class PlayerMove : MonoBehaviour
             Die = false;
             transform.position = reSpawnPos;
         }
-        if (coll.IsTouchingLayers(spike) || bodyColl.IsTouchingLayers(spike))
+        if (coll.IsTouchingLayers(spike)) //|| bodyColl.IsTouchingLayers(spike))
         {
             transform.position = reSpawnPos;
             dieTime += 1;
