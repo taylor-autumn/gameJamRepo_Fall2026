@@ -1,0 +1,11 @@
+﻿title: Text_Dialogue
+---
+Char: Hi, This is a test. Press Space to go.
+Char: Work fine if you could see this.
+-> Yeahhhhhhhhhhhh!
+	Char: Glad! (Respond!)
+-> Hm...
+	Char: Hm...?
+(So yeah... Now it work I guess...)
+Char: That's what I think!
+===
