@@ -26,7 +26,7 @@ public class PlayerControl : MonoBehaviour
     public bool AbleToJump;
     public bool IsJump;
     public bool infiniteJump;
-    private float jumpTime;
+    private float jumpTimer;
     private float coyoteTimeCounter;
     private bool JumpPressed;
     private bool JumpHeld;
@@ -116,9 +116,7 @@ public class PlayerControl : MonoBehaviour
         //    PlayerPrefs.DeleteKey("HighScore");
         //}
 
-        JumpPressed = Input.GetButtonDown("Jump");
 
-        JumpHeld = Input.GetButton("Jump");
 
         DashDirection();
         Dash();
@@ -242,7 +240,7 @@ public class PlayerControl : MonoBehaviour
                 IsJump = true;
                 OnGround = false;
 
-                jumpTime = Time.time + jumpHoldDuration;
+                jumpTimer = Time.time + jumpHoldDuration;
 
                 if (rb.linearVelocity.y > 0)
                 {
@@ -256,11 +254,11 @@ public class PlayerControl : MonoBehaviour
         }
         else if (IsJump)
         {
-            if (JumpHeld)
+            if (JumpHeld && jumpTimer <= jumpTime)
             {
                 rb.AddForce(new Vector2(0, jumpHoldForce), ForceMode2D.Impulse);
             }
-            if (jumpTime < Time.time)
+            if (jumpTimer >= jumpTime)
             {
                 IsJump = false;
             }
