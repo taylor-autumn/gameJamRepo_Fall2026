@@ -4,6 +4,7 @@ public class itemInteraction : MonoBehaviour
 {
     public bool hasKeyCard = false;
     public bool canTryDoor = false;
+    public GameObject childOfTargetDoor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +17,24 @@ public class itemInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && hasKeyCard && canTryDoor)
         {
-            print("openDoor");
+            Transform door = childOfTargetDoor.transform.parent;
+            doorInfo thatDoorInfo = door.GetComponent<doorInfo>();
+
+            if (thatDoorInfo.isOpen == false)
+            {
+                print("opened door: " + door);
+                door.GetComponent<SpriteRenderer>().color = Color.green;
+                thatDoorInfo.isOpen = true;
+            }
+            else if (thatDoorInfo.isOpen == true)
+            {
+                Debug.LogWarning("That door is already open");
+            }
+            else
+            {
+                Debug.LogError("Something went wrong in calculating the door");
+            }
+
         }
     }
 
@@ -35,6 +53,7 @@ public class itemInteraction : MonoBehaviour
         {
             canTryDoor = true;
             print("In door");
+            childOfTargetDoor = collision.gameObject;
         }
 
     }
@@ -44,6 +63,7 @@ public class itemInteraction : MonoBehaviour
         //if in door area
         if (collision.CompareTag("door"))
         {
+            childOfTargetDoor = null;
             canTryDoor = false;
             print("leave door");
         }
