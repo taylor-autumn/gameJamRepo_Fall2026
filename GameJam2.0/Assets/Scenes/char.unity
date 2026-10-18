@@ -407,7 +407,7 @@ MonoBehaviour:
   faceDirKey: 0
   oppositeFaceDirKey: 0
   jumpForce: 2
-  jumpHoldForce: 2
+  jumpHoldForce: 0
   jumpHoldDuration: 0.1
   coyoteTime: 0.2
   OnGround: 1
