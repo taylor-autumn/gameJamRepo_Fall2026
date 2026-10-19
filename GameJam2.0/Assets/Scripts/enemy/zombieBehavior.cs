@@ -1,12 +1,12 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.InputSystem.OnScreen.OnScreenStick;
 
 public class zombieBehavior : MonoBehaviour
 {
 
     [Header("Main Stats")]
-    public float speed = 5f;
+    public float speed;
     public Animator zombieAnim;
     public bool isAttacking = false;
 
@@ -19,11 +19,20 @@ public class zombieBehavior : MonoBehaviour
     public Transform startTargetTransform;
     public Transform currentTargetTransform = null;
 
+    [Header("Autonomous Zombie Shit")]
+    public float timer = 0f;
+    public float waitTime = 0f;
+    public float minTime = 5f;
+    public float maxTime = 11f;
+    public float minIdle = 2f;
+    public float maxIdle = 5f;
+
     public enum zombieType
     {
-        passive,
+        autonomous,
         mover,
     }
+    [Header("Zombie Type")]
     public zombieType type;
     public enum zombieState
     {
@@ -38,16 +47,54 @@ public class zombieBehavior : MonoBehaviour
     void Start()
     {
         justStarted = true;
-        print("Zombie type is " + type);
+
+        //set random speed
+        speed = Random.Range(3, 6);
+
+        //print("Zombie type is " + type);
+        if (type == zombieType.autonomous)
+        {
+            waitTime = Random.Range(minIdle, maxIdle);
+            //set wait time if autonomous
+            state = zombieState.idle;
+            //set state to idle at start if autonomous
+        }
+
+        //get anim
+        zombieAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (type == zombieType.passive)
+        if (type == zombieType.autonomous)
         {
             //trigger passive zombie type
+            timer += Time.deltaTime;
+
+            switch (state)
+            {
+                case zombieState.idle:
+                    onZombieIdle();
+                    break;
+                case zombieState.moving:
+                    onZombieMove();
+                    break;
+                case zombieState.attacking:
+                    StartCoroutine(zombieAttack());
+                    //PUT PLAYER RESPAWN/damage HERE???======================
+                    break;
+                default:
+                    Debug.LogError("something wrong with autonomous");
+                    break;
+            }
+
+            if (timer > waitTime)
+            {
+                timer = 0; //reset timer
+                switchZombieBehavior();
+            }
         }
         else if (type == zombieType.mover)
         {
@@ -58,15 +105,43 @@ public class zombieBehavior : MonoBehaviour
                     break;
                 case zombieState.attacking:
                     StartCoroutine(zombieAttack());
-                    //PUT PLAYER RESPAWN HERE???======================
+                    //PUT PLAYER RESPAWN/damage HERE???======================
+                    break;
+                default:
+                    Debug.LogError("something wrong with autonomous");
                     break;
             }
         }
 
     }
 
+    public void switchZombieBehavior()
+    {
+        if (state == zombieState.idle)
+        {
+            //reset wait time
+            waitTime=Random.Range(minTime, maxTime);
+            //set to moving
+            state = zombieState.moving;
+        }
+        else
+        {
+            //reset idle wait time
+            waitTime=Random.Range(minIdle, maxIdle);
+            //set to idle
+            state = zombieState.idle;
+        }
+    }
+
+    public void onZombieIdle()
+    {
+        //idle anim set
+        zombieAnim.SetInteger("state", 0);
+    }
     public void onZombieMove()
     {
+        //move anim set
+        zombieAnim.SetInteger("state", 1);
 
         if (justStarted)
         {
@@ -135,7 +210,7 @@ public class zombieBehavior : MonoBehaviour
         print("is attacking = " + isAttacking);
         zombieAnim.SetTrigger("attack");
         //SOUND FOR ATTACK HERE===============================
-        yield return new WaitForSeconds(1.5f); //maybe change this for player die===============
+        yield return new WaitForSeconds(0.45f); //maybe change this for player die===============
 
         isAttacking = false;
         if (type == zombieType.mover)
@@ -146,7 +221,6 @@ public class zombieBehavior : MonoBehaviour
         {
             //function to pick / go back to idle?
         }
-        
 
     }
 
