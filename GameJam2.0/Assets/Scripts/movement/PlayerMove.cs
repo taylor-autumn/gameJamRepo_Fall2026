@@ -116,8 +116,8 @@ public class PlayerControl : MonoBehaviour
         //    PlayerPrefs.DeleteKey("HighScore");
         //}
 
-        jumpPressed = Input.GetButtonDown("Jump");
-        jumpHeld = Input.GetButton("Jump");
+        //jumpPressed = Input.GetButtonDown("Jump");
+        //jumpHeld = Input.GetButton("Jump");
 
         DashDirection();
         Dash();
@@ -233,41 +233,42 @@ public class PlayerControl : MonoBehaviour
 
     private void JumpControl()
     {
+
+        //if (Input.GetButton("Jump"))
+        //{
+        //    jumpTimer += Time.deltaTime;
+        //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, jumpForce));
+        //}
         if (Input.GetButtonDown("Jump"))
         {
-            jumpTimer += Time.deltaTime;
-            if (jumpTimer <= jumpHoldDuration && coyoteTime > 0f && !DuringClimbing && AbleToJump)
+            
+            if (jumpTimer <= jumpHoldDuration && coyoteTime > 0f && !DuringClimbing && AbleToJump && OnGround)
             {
-                    //jump.Play();
-                    isjump = true;
-                    //OnGround = false;
+                Debug.Log("Jumping");
+                //jump.Play();
+                //isjump = true;
+                //OnGround = false;
 
-                    //jumpTimer = Time.time + jumpHoldDuration;
+                //jumpTimer = Time.time + jumpHoldDuration;
 
-                    if (rb.linearVelocity.y > 0)
-                    {
-                        rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                    }
-                    if (rb.linearVelocity.y <= 0)
-                    {
-                        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                }
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, jumpForce));
+                //if (rb.linearVelocity.y > 0)
+                //{
+                //    rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                //}
+                //if (rb.linearVelocity.y <= 0)
+                //{
+                //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                //}
             }
-            else if (isjump && Input.GetButtonUp("Jump"))
-            {
-                if (jumpHeld && jumpTimer <= jumpHoldDuration)
-                {
-                    isjump = true;
-                    jumpTimer += Time.deltaTime;
-                    rb.AddForce(new Vector2(0, jumpHoldForce), ForceMode2D.Impulse);
-                    Debug.Log(jumpTimer);
-                }
-                if (jumpTimer >= jumpHoldDuration)
-                {
-                    jumpTimer = 0;
-                    isjump = false;
-                }
-            }
+        }
+        else if (Input.GetButtonUp("Jump"))
+        {
+
+            Debug.Log("stop jump");
+            jumpTimer = 0;
+
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
         }
 
 
