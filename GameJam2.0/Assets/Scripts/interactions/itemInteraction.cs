@@ -2,9 +2,24 @@ using UnityEngine;
 
 public class itemInteraction : MonoBehaviour
 {
+    [Header("Item Bools")]
     public bool hasKeyCard = false;
+
+    [Header("Level Bools")]
+    public bool finishedWrenchLevel = false;
+    public bool finishedCodeLevel = false;
+    public bool finishedScrewDriverLevel = false;
+    public bool finished4thLevel = false;
+
+    [Header("Door stuff")]
     public bool canTryDoor = false;
     public GameObject childOfTargetDoor;
+
+    private void Awake()
+    {
+        // Keeps this GameObject alive when changing scenes
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
