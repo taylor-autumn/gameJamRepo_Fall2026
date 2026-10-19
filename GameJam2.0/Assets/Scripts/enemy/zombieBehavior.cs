@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class zombieBehavior : MonoBehaviour
     [Header("Main Stats")]
     public float speed = 5f;
     public Animator zombieAnim;
+    public bool isAttacking = false;
 
     [Header("Target stuff")]
     public bool justStarted = false;
@@ -17,8 +19,15 @@ public class zombieBehavior : MonoBehaviour
     public Transform startTargetTransform;
     public Transform currentTargetTransform = null;
 
+    public enum zombieType
+    {
+        passive,
+        mover,
+    }
+    public zombieType type;
     public enum zombieState
     {
+        idle,
         moving,
         attacking
     }
@@ -29,22 +38,29 @@ public class zombieBehavior : MonoBehaviour
     void Start()
     {
         justStarted = true;
+        print("Zombie type is " + type);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        switch (state)
+        if (type == zombieType.passive)
         {
-            case zombieState.moving:
-                onZombieMove();
-                break;
-            case zombieState.attacking:
-
-
-
-                break;
+            //trigger passive zombie type
+        }
+        else if (type == zombieType.mover)
+        {
+            switch (state)
+            {
+                case zombieState.moving:
+                    onZombieMove();
+                    break;
+                case zombieState.attacking:
+                    StartCoroutine(zombieAttack());
+                    //PUT PLAYER RESPAWN HERE???======================
+                    break;
+            }
         }
 
     }
@@ -52,11 +68,12 @@ public class zombieBehavior : MonoBehaviour
     public void onZombieMove()
     {
 
-        //anim set here
-
         if (justStarted)
         {
-            currentTargetTransform = startTargetTransform;
+            //so you can choose if you want starting direction to be random or deliberately set by you in the inspector
+            if (startTargetTransform == null) chooseRandomStartingTarget();
+            else currentTargetTransform = startTargetTransform;
+
             justStarted = false;
             //set it so that the first target transform is whatever the first one set in the inspector is for this zombie
         }
@@ -94,4 +111,43 @@ public class zombieBehavior : MonoBehaviour
         }
 
     }
+
+    public void chooseRandomStartingTarget()
+    {
+        int randomStartingDirection = Random.Range(0, 2);
+
+        if (randomStartingDirection == 0) currentTargetTransform = leftPos;
+        else currentTargetTransform = rightPos;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            print("HIT PLAYER!");
+            state = zombieState.attacking;
+        }
+    }
+
+    public IEnumerator zombieAttack()
+    {
+        isAttacking = true;
+        print("is attacking = " + isAttacking);
+        zombieAnim.SetTrigger("attack");
+        //SOUND FOR ATTACK HERE===============================
+        yield return new WaitForSeconds(1.5f); //maybe change this for player die===============
+
+        isAttacking = false;
+        if (type == zombieType.mover)
+        {
+            state = zombieState.moving;
+        }
+        else
+        {
+            //function to pick / go back to idle?
+        }
+        
+
+    }
+
 }

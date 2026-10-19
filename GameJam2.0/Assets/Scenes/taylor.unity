@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 87836769}
   m_Layer: 0
-  m_Name: zombie1
+  m_Name: moverZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,8 +596,8 @@ Transform:
   m_GameObject: {fileID: 576942335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.24, y: 0.61, z: 0}
-  m_LocalScale: {x: 3.21352, y: 0.6206268, z: 0.1717}
+  m_LocalPosition: {x: 5.66, y: 0.61, z: 0}
+  m_LocalScale: {x: 5.101463, y: 0.6206268, z: 0.1717}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 615430784}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -703,8 +703,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6179246, g: 1, b: 0.96491945, a: 1}
+  m_Sprite: {fileID: -4607695440609464244, guid: 2de6b5b873614e9488b413b0e5740225, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -722,7 +722,7 @@ Transform:
   m_GameObject: {fileID: 615430778}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.44, y: -1.39, z: 0}
+  m_LocalPosition: {x: -6.21, y: -1.162, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -762,17 +762,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.023119211, y: -0.16348568}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 1.5714285}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8150463, y: 0.67302865}
   m_EdgeRadius: 0
 --- !u!50 &615430782
 Rigidbody2D:
@@ -997,6 +997,8 @@ GameObject:
   - component: {fileID: 858483182}
   - component: {fileID: 858483181}
   - component: {fileID: 858483183}
+  - component: {fileID: 858483184}
+  - component: {fileID: 858483185}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Untagged
@@ -1072,9 +1074,9 @@ Transform:
   m_GameObject: {fileID: 858483180}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.49587, y: -0.66098, z: 0}
-  m_LocalScale: {x: 5.2245173, y: 7.725148, z: 7.725148}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -3.35, y: -0.595, z: 0}
+  m_LocalScale: {x: 1.2511914, y: 1.2511914, z: 1.2511914}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 87836769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1092,14 +1094,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 3
   zombieAnim: {fileID: 0}
+  isAttacking: 0
   justStarted: 0
   leftPos: {fileID: 1164015831}
   rightPos: {fileID: 605301566}
   distanceThreshold: 0.5
   atPoint: 0
-  startTargetTransform: {fileID: 605301566}
+  startTargetTransform: {fileID: 0}
   currentTargetTransform: {fileID: 0}
-  state: 0
+  type: 1
+  state: 1
+--- !u!95 &858483184
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858483180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0c4ff425542d6a46b4e6ce224ce108c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &858483185
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858483180}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.023913585, y: -0.047827184}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9285714, y: 1.4285715}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.28290248, y: 0.53180945}
+  m_EdgeRadius: 0
 --- !u!1 &972461159
 GameObject:
   m_ObjectHideFlags: 0
