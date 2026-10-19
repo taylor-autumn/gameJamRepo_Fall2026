@@ -26,7 +26,7 @@ public class PlayerControl : MonoBehaviour
     public bool AbleToJump;
     public bool IsJump;
     public bool infiniteJump;
-    private float jumpTimer;
+    private float jumpTimer = 0f;
     private float coyoteTimeCounter;
     private bool JumpPressed;
     private bool JumpHeld;
@@ -116,7 +116,8 @@ public class PlayerControl : MonoBehaviour
         //    PlayerPrefs.DeleteKey("HighScore");
         //}
 
-
+        JumpPressed = Input.GetButtonDown("Jump");
+        JumpHeld = Input.GetButton("Jump");
 
         DashDirection();
         Dash();
@@ -163,9 +164,9 @@ public class PlayerControl : MonoBehaviour
         horizontalMove = Input.GetAxis("Horizontal");
         float faceDirection = Input.GetAxisRaw("Horizontal");
         float faceDirectionAir = Input.GetAxisRaw("Air Horizontal");
-        Debug.Log(horizontalMove);
-        Debug.Log(faceDirection);
-        Debug.Log(faceDirectionAir);
+        //Debug.Log(horizontalMove);
+        //Debug.Log(faceDirection);
+        //Debug.Log(faceDirectionAir);
 
         if (CanMove)
         {
@@ -240,7 +241,7 @@ public class PlayerControl : MonoBehaviour
                 IsJump = true;
                 OnGround = false;
 
-                jumpTimer = Time.time + jumpHoldDuration;
+                //jumpTimer = Time.time + jumpHoldDuration;
 
                 if (rb.linearVelocity.y > 0)
                 {
@@ -254,12 +255,16 @@ public class PlayerControl : MonoBehaviour
         }
         else if (IsJump)
         {
-            if (JumpHeld && jumpTimer <= jumpTime)
+            if (JumpHeld && jumpTimer <= jumpHoldDuration)
             {
+                IsJump = true;
+                jumpTimer += Time.deltaTime;
                 rb.AddForce(new Vector2(0, jumpHoldForce), ForceMode2D.Impulse);
+                Debug.Log("Jumping");
             }
-            if (jumpTimer >= jumpTime)
+            if (jumpTimer >= jumpHoldDuration)
             {
+                jumpTimer = 0;
                 IsJump = false;
             }
         }
