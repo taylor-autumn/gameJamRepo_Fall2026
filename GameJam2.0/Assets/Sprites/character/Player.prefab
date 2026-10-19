@@ -114,7 +114,7 @@ MonoBehaviour:
   CanMove: 1
   faceDirKey: 0
   oppositeFaceDirKey: 0
-  jumpForce: 7.92
+  jumpForce: 8
   jumpHoldForce: 0.01
   jumpHoldDuration: 0.2
   coyoteTime: 0.2
@@ -225,15 +225,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.043851852, y: -0.10524403}
+  m_Offset: {x: -0.08729738, y: -0.048765182}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5833333, y: 0.9166667}
+    oldSize: {x: 1, y: 1.5714285}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.24575162, y: 0.6842679}
+  m_Size: {x: 0.4369098, y: 1.3359454}
   m_EdgeRadius: 0

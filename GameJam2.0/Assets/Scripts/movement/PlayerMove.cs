@@ -234,19 +234,23 @@ public class PlayerControl : MonoBehaviour
     private void JumpControl()
     {
 
-        //if (Input.GetButton("Jump"))
-        //{
-        //    jumpTimer += Time.deltaTime;
-        //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, jumpForce));
-        //}
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButton("Jump"))
+        {
+            jumpTimer += Time.deltaTime;
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, jumpForce));
+        }
+        if (Input.GetButton("Jump") && isjump && jumpTimer <= jumpHoldDuration)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, jumpForce));
+        }
+        else if (Input.GetButtonDown("Jump"))
         {
             
             if (jumpTimer <= jumpHoldDuration && coyoteTime > 0f && !DuringClimbing && AbleToJump && OnGround)
             {
                 Debug.Log("Jumping");
                 //jump.Play();
-                //isjump = true;
+                isjump = true;
                 //OnGround = false;
 
                 //jumpTimer = Time.time + jumpHoldDuration;
@@ -264,7 +268,7 @@ public class PlayerControl : MonoBehaviour
         }
         else if (Input.GetButtonUp("Jump"))
         {
-
+            isjump = false;
             Debug.Log("stop jump");
             jumpTimer = 0;
 
