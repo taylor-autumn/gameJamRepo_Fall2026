@@ -1097,7 +1097,7 @@ MonoBehaviour:
   rightPos: {fileID: 605301566}
   distanceThreshold: 0.5
   atPoint: 0
-  startTargetTransform: {fileID: 1164015831}
+  startTargetTransform: {fileID: 605301566}
   currentTargetTransform: {fileID: 0}
   state: 0
 --- !u!1 &972461159

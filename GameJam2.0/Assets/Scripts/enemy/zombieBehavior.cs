@@ -68,7 +68,7 @@ public class zombieBehavior : MonoBehaviour
                 //only do it once
                 print("AT POINT");
                 atPoint = true;
-                setNextTarget(currentTargetTransform);
+                setNextTarget();
             }
 
         }
@@ -79,12 +79,11 @@ public class zombieBehavior : MonoBehaviour
 
             //make sure it's walking the right direction
             float directionX = currentTargetTransform.position.x - transform.position.x;
-            gameObject.GetComponent<SpriteRenderer>().flipX = directionX < 0; //WOW built in boolean
-
+            gameObject.GetComponent<SpriteRenderer>().flipX = directionX > 0; //WOW built in boolean
         }
     }
 
-    public void setNextTarget(Transform currentTransform)
+    public void setNextTarget()
     {
 
         if (currentTargetTransform == leftPos) currentTargetTransform = rightPos;
