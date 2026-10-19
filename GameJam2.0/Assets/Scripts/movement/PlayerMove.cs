@@ -122,7 +122,7 @@ public class PlayerControl : MonoBehaviour
         DashDirection();
         Dash();
         WallJump();
-        anim.SetFloat("Running", Mathf.Abs(horizontalMove));
+        //anim.SetFloat("Running", Mathf.Abs(horizontalMove));
         if (WallCollide && !OnGround && rb.linearVelocity.y <= 0 && !DuringWallJump && Input.GetKey(faceDirKey))
         {
             WallSlide();
