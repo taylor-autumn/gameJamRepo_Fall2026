@@ -109,7 +109,7 @@ MonoBehaviour:
   rb: {fileID: 2367847715178669992}
   anim: {fileID: 0}
   coll: {fileID: 5069937190083321837}
-  moveSpeed: 280
+  moveSpeed: 197.9
   horizontalMove: 0
   CanMove: 1
   faceDirKey: 0
