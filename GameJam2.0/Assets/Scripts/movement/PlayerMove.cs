@@ -260,7 +260,7 @@ public class PlayerControl : MonoBehaviour
                 IsJump = true;
                 jumpTimer += Time.deltaTime;
                 rb.AddForce(new Vector2(0, jumpHoldForce), ForceMode2D.Impulse);
-                Debug.Log("Jumping");
+                Debug.Log(jumpTimer);
             }
             if (jumpTimer >= jumpHoldDuration)
             {
