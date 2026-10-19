@@ -24,12 +24,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.2f;
     public bool OnGround;
     public bool AbleToJump;
-    public bool IsJump;
+    public bool isjump;
     public bool infiniteJump;
     private float jumpTimer = 0f;
     private float coyoteTimeCounter;
-    private bool JumpPressed;
-    private bool JumpHeld;
+    private bool jumpPressed;
+    private bool jumpHeld;
 
     // Wall movement
     [SerializeField] private float climbSpeed;
@@ -116,8 +116,8 @@ public class PlayerControl : MonoBehaviour
         //    PlayerPrefs.DeleteKey("HighScore");
         //}
 
-        JumpPressed = Input.GetButtonDown("Jump");
-        JumpHeld = Input.GetButton("Jump");
+        jumpPressed = Input.GetButtonDown("Jump");
+        jumpHeld = Input.GetButton("Jump");
 
         DashDirection();
         Dash();
@@ -233,41 +233,43 @@ public class PlayerControl : MonoBehaviour
 
     private void JumpControl()
     {
-        if (JumpPressed && AbleToJump && !IsJump && coyoteTime > 0f && !DuringClimbing)
+        if (Input.GetButtonDown("Jump"))
         {
-            if (AbleToJump && !IsJump)
+            jumpTimer += Time.deltaTime;
+            if (jumpTimer <= jumpHoldDuration && coyoteTime > 0f && !DuringClimbing && AbleToJump)
             {
-                //jump.Play();
-                IsJump = true;
-                OnGround = false;
+                    //jump.Play();
+                    isjump = true;
+                    //OnGround = false;
 
-                //jumpTimer = Time.time + jumpHoldDuration;
+                    //jumpTimer = Time.time + jumpHoldDuration;
 
-                if (rb.linearVelocity.y > 0)
-                {
-                    rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                    if (rb.linearVelocity.y > 0)
+                    {
+                        rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                    }
+                    if (rb.linearVelocity.y <= 0)
+                    {
+                        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 }
-                if (rb.linearVelocity.y <= 0)
+            }
+            else if (isjump && Input.GetButtonUp("Jump"))
+            {
+                if (jumpHeld && jumpTimer <= jumpHoldDuration)
                 {
-                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                    isjump = true;
+                    jumpTimer += Time.deltaTime;
+                    rb.AddForce(new Vector2(0, jumpHoldForce), ForceMode2D.Impulse);
+                    Debug.Log(jumpTimer);
+                }
+                if (jumpTimer >= jumpHoldDuration)
+                {
+                    jumpTimer = 0;
+                    isjump = false;
                 }
             }
         }
-        else if (IsJump)
-        {
-            if (JumpHeld && jumpTimer <= jumpHoldDuration)
-            {
-                IsJump = true;
-                jumpTimer += Time.deltaTime;
-                rb.AddForce(new Vector2(0, jumpHoldForce), ForceMode2D.Impulse);
-                Debug.Log(jumpTimer);
-            }
-            if (jumpTimer >= jumpHoldDuration)
-            {
-                jumpTimer = 0;
-                IsJump = false;
-            }
-        }
+
 
         if (Input.GetButtonUp("Jump"))
         {
