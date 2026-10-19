@@ -122,7 +122,7 @@ public class PlayerControl : MonoBehaviour
         DashDirection();
         Dash();
         WallJump();
-
+        anim.SetFloat("Running", Mathf.Abs(horizontalMove));
         if (WallCollide && !OnGround && rb.linearVelocity.y <= 0 && !DuringWallJump && Input.GetKey(faceDirKey))
         {
             WallSlide();
@@ -176,7 +176,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     if (horizontalMove != 0)
                     {
-                        //anim.SetFloat("Running", Mathf.Abs(horizontalMove));
+                        anim.SetFloat("Running", Mathf.Abs(horizontalMove));
                         rb.linearVelocity = new Vector2((horizontalMove * moveSpeed * Time.fixedDeltaTime), rb.linearVelocity.y);
                     }
                 }
@@ -184,7 +184,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     horizontalMove = Input.GetAxis("Air Horizontal");
                     rb.linearVelocity = new Vector2(horizontalMove * moveSpeed * Time.fixedDeltaTime, rb.linearVelocity.y);
-                    //anim.SetFloat("Running", Mathf.Abs(horizontalMove));
+                    anim.SetFloat("Running", Mathf.Abs(horizontalMove));
                 }
 
                 if (faceDirection != 0 && faceDirectionAir != 0)
@@ -197,17 +197,17 @@ public class PlayerControl : MonoBehaviour
 
     private void JumpAnimation()
     {
-        //anim.SetBool("OnTheGround", false);
+        anim.SetBool("OnTheGround", false);
         OnGround = false;
         AbleToJump = false;
-        //anim.SetFloat("VerticalSpeed", rb.linearVelocity.y);
+        anim.SetFloat("VerticalSpeed", rb.linearVelocity.y);
 
         if (coll.IsTouchingLayers(ground))
         {
             AbleToJump = true;
             OnGround = true;
             //sr.color = normalColor;
-            //anim.SetBool("OnTheGround", true);
+            anim.SetBool("OnTheGround", true);
             if (DuringDash)
             {
                 AbleToDash = false;
