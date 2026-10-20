@@ -11,6 +11,7 @@ TagManager:
   - CheckPoint
   - Goal
   - Enemy
+  - Platform
   layers:
   - Default
   - TransparentFX

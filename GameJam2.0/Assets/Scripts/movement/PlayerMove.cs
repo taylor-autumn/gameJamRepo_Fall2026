@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour
 {
     // Components
+    [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     [SerializeField] private Collider2D coll;
@@ -11,58 +12,84 @@ public class PlayerControl : MonoBehaviour
     //[SerializeField] private SpriteRenderer sr;
 
     // Movement
+    [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     public float horizontalMove;
-    public bool CanMove = true;
+    [UnityEngine.Serialization.FormerlySerializedAs("CanMove")]
+    public bool canMove = true;
     public KeyCode faceDirKey;
     public KeyCode oppositeFaceDirKey;
 
+
     // Jump
+    [Header("Jump")]
     [SerializeField] private float jumpForce;
     //[SerializeField] private float jumpHoldForce = 2f;
     [SerializeField] private float jumpHoldDuration = 0.1f;
     [SerializeField] private float coyoteTime = 0.2f;
-    public bool OnGround;
-    public bool AbleToJump;
-    public bool isjump;
+    [UnityEngine.Serialization.FormerlySerializedAs("OnGround")]
+    public bool onGround;
+    [UnityEngine.Serialization.FormerlySerializedAs("AbleToJump")]
+    public bool ableToJump;
+    [UnityEngine.Serialization.FormerlySerializedAs("isjump")]
+    public bool isJump;
     public bool infiniteJump;
     private float jumpTimer = 0f;
     private float coyoteTimeCounter;
     private bool jumpPressed;
     private bool jumpHeld;
 
+    //Platform Bind
+    [Header("Platform Bind")]
+    public GameObject currentPlatform;
+    public Vector3 lastPlatformPos;
+
+
     // Wall movement
+    [Header("Wall Movement(Not in used)")]
     [SerializeField] private float climbSpeed;
     [SerializeField] private float slideSpeed;
     [SerializeField] private float wallJumpDuration = 0.01f;
-    public bool WallCollide = false;
-    public bool AbleToClimb;
-    public bool DuringWallJump;
-    public bool DuringClimbing;
+    [UnityEngine.Serialization.FormerlySerializedAs("WallCollide")]
+    public bool wallCollide = false;
+    [UnityEngine.Serialization.FormerlySerializedAs("AbleToClimb")]
+    public bool ableToClimb;
+    [UnityEngine.Serialization.FormerlySerializedAs("DuringWallJump")]
+    public bool duringWallJump;
+    [UnityEngine.Serialization.FormerlySerializedAs("DuringClimbing")]
+    public bool duringClimbing;
     private float wallJumpTime;
 
     // Dash
+    [Header("Dash (Not in used)")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     public Vector2 dashDire;
-    public bool DuringDash;
-    public bool AbleToDash;
+    [UnityEngine.Serialization.FormerlySerializedAs("DuringDash")]
+    public bool duringDash;
+    [UnityEngine.Serialization.FormerlySerializedAs("AbleToDash")]
+    public bool ableToDash;
     private float dashTime;
     private Vector2 currentDashDire = new Vector2(0, 0);
 
-    // Collision and appearance
+    // Collision layers
+    [Header("Collision layers")]
     [SerializeField] private LayerMask ground;
     [SerializeField] private LayerMask spike;
+    // Appearance
     [SerializeField] private Vector2 bodySqueezeSize;
     [SerializeField] private Vector2 bodySize;
     [SerializeField] private float squeezeAmount;
     [SerializeField] private Color normalColor;
     [SerializeField] private Color noDashColor;
 
-    // Respawn and UI
-    public bool Die;
+    // Respawn
+    [Header("Respawn")]
+    [UnityEngine.Serialization.FormerlySerializedAs("Die")]
+    public bool isDead;
     public Vector3 reSpawnPos;
     public int dieTime = 0;
+    // UI
     [SerializeField] private GameObject dieTimeText;
     [SerializeField] private GameObject highScore;
     [SerializeField] private Text highScoreText;
@@ -102,7 +129,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        if (OnGround)
+        if (onGround)
         {
             coyoteTimeCounter = coyoteTime;
         }
@@ -122,7 +149,7 @@ public class PlayerControl : MonoBehaviour
         DashDirection();
         //Dash();
         //WallJump();
-        //if (WallCollide && !OnGround && rb.linearVelocity.y <= 0 && !DuringWallJump && Input.GetKey(faceDirKey))
+        //if (wallCollide && !onGround && rb.linearVelocity.y <= 0 && !duringWallJump && Input.GetKey(faceDirKey))
         //{
         //    WallSlide();
         //}
@@ -133,13 +160,24 @@ public class PlayerControl : MonoBehaviour
 
         if (infiniteJump == true)
         {
-            AbleToJump = true;
+            ableToJump = true;
         }
     }
 
+
+    private void MoveWithPlatform()
+    {
+
+        Vector3 platformDelta = currentPlatform.transform.position - lastPlatformPos;
+        lastPlatformPos = currentPlatform.transform.position;
+        transform.position = transform.position + platformDelta;
+
+    }
+
+
     private void FixedUpdate()
     {
-        if (!DuringDash)
+        if (!duringDash)
         {
             Movement();
         }
@@ -167,11 +205,11 @@ public class PlayerControl : MonoBehaviour
         //Debug.Log(faceDirection);
         //Debug.Log(faceDirectionAir);
 
-        if (CanMove)
+        if (canMove)
         {
-            if (DuringWallJump == false)
+            if (duringWallJump == false)
             {
-                if (OnGround == true)
+                if (onGround == true)
                 {
                     if (horizontalMove != 0)
                     {
@@ -197,29 +235,29 @@ public class PlayerControl : MonoBehaviour
     private void JumpAnimation()
     {
         anim.SetBool("OnTheGround", false);
-        OnGround = false;
-        AbleToJump = false;
+        onGround = false;
+        ableToJump = false;
         anim.SetFloat("VerticalSpeed", rb.linearVelocity.y);
 
         if (coll.IsTouchingLayers(ground))
         {
-            AbleToJump = true;
-            OnGround = true;
+            ableToJump = true;
+            onGround = true;
             //sr.color = normalColor;
             anim.SetBool("OnTheGround", true);
-            if (DuringDash)
+            if (duringDash)
             {
-                AbleToDash = false;
+                ableToDash = false;
             }
             else
             {
-                AbleToDash = true;
+                ableToDash = true;
             }
         }
 
-        if (OnGround == false)
+        if (onGround == false)
         {
-            if (DuringClimbing)
+            if (duringClimbing)
             {
                 //anim.SetBool("DuringClimbing", true);
             }
@@ -238,19 +276,19 @@ public class PlayerControl : MonoBehaviour
             jumpTimer += Time.deltaTime;
             //rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, jumpForce));
         }
-        if (Input.GetButton("Jump") && isjump && jumpTimer <= jumpHoldDuration)
+        if (Input.GetButton("Jump") && isJump && jumpTimer <= jumpHoldDuration)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, jumpForce));
         }
         else if (Input.GetButtonDown("Jump"))
         {
-            
-            if (jumpTimer <= jumpHoldDuration && coyoteTime > 0f && !DuringClimbing && AbleToJump && OnGround)
+
+            if (jumpTimer <= jumpHoldDuration && coyoteTime > 0f && !duringClimbing && ableToJump && onGround)
             {
-                Debug.Log("Jumping");
+                //Debug.Log("Jumping");
                 //jump.Play();
-                isjump = true;
-                //OnGround = false;
+                isJump = true;
+                //onGround = false;
 
                 //jumpTimer = Time.time + jumpHoldDuration;
 
@@ -267,8 +305,8 @@ public class PlayerControl : MonoBehaviour
         }
         else if (Input.GetButtonUp("Jump"))
         {
-            isjump = false;
-            Debug.Log("stop jump");
+            isJump = false;
+            //Debug.Log("stop jump");
             jumpTimer = 0;
 
             //rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
@@ -286,17 +324,17 @@ public class PlayerControl : MonoBehaviour
         if (rb.linearVelocity.y <= 0)
         {
             //anim.SetFloat("VerticalSpeed", -0.1f);
-            AbleToClimb = true;
+            ableToClimb = true;
         }
 
-        if (WallCollide && AbleToClimb && !DuringDash)
+        if (wallCollide && ableToClimb && !duringDash)
         {
             if (Input.GetKey(KeyCode.Z))
             {
-                if (DuringWallJump == false)
+                if (duringWallJump == false)
                 {
-                    DuringClimbing = true;
-                    CanMove = false;
+                    duringClimbing = true;
+                    canMove = false;
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
                     if (Input.GetKey(KeyCode.UpArrow))
                     {
@@ -304,7 +342,7 @@ public class PlayerControl : MonoBehaviour
                     }
                     if (Input.GetKey(KeyCode.DownArrow))
                     {
-                        if (OnGround == false)
+                        if (onGround == false)
                         {
                             transform.position -= new Vector3(0, climbSpeed, 0);
                         }
@@ -313,16 +351,16 @@ public class PlayerControl : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.Z))
             {
-                DuringClimbing = false;
-                CanMove = true;
+                duringClimbing = false;
+                canMove = true;
                 rb.constraints = RigidbodyConstraints2D.None;
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
         }
         else
         {
-            CanMove = true;
-            DuringClimbing = false;
+            canMove = true;
+            duringClimbing = false;
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
@@ -335,16 +373,16 @@ public class PlayerControl : MonoBehaviour
 
     private void WallJump()
     {
-        if (WallCollide && !OnGround)
+        if (wallCollide && !onGround)
         {
             if ((Input.GetKey(oppositeFaceDirKey) && Input.GetButtonDown("Jump")) || (Input.GetButtonDown("Jump") && !Input.GetKey(KeyCode.Z)))
             {
                 jump.Play();
-                DuringWallJump = true;
+                duringWallJump = true;
                 wallJumpTime = Time.time + wallJumpDuration;
-                DuringClimbing = false;
-                CanMove = true;
-                AbleToJump = false;
+                duringClimbing = false;
+                canMove = true;
+                ableToJump = false;
                 rb.constraints = RigidbodyConstraints2D.None;
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 if (rb.linearVelocity.y > 0)
@@ -361,17 +399,17 @@ public class PlayerControl : MonoBehaviour
             }
             else if (Input.GetButtonDown("Jump") && Input.GetKey(KeyCode.Z) || (Input.GetButtonDown("Jump") && Input.GetKey(KeyCode.Z) && Input.GetKey(faceDirKey)))
             {
-                AbleToClimb = false;
-                DuringClimbing = false;
+                ableToClimb = false;
+                duringClimbing = false;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             }
         }
-        else if (DuringWallJump)
+        else if (duringWallJump)
         {
             if (wallJumpTime < Time.time)
             {
                 horizontalMove = rb.linearVelocity.x / moveSpeed;
-                DuringWallJump = false;
+                duringWallJump = false;
             }
         }
     }
@@ -423,18 +461,18 @@ public class PlayerControl : MonoBehaviour
 
     private void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.X) && AbleToDash)
+        if (Input.GetKeyDown(KeyCode.X) && ableToDash)
         {
             dash.Play();
-            DuringDash = true;
-            AbleToDash = false;
+            duringDash = true;
+            ableToDash = false;
             dashTime = Time.time + dashDuration;
 
             currentDashDire = dashDire;
             SqueezeVertical();
             //sr.color = noDashColor;
         }
-        else if (DuringDash)
+        else if (duringDash)
         {
             if (currentDashDire == new Vector2(0, 0))
             {
@@ -460,12 +498,12 @@ public class PlayerControl : MonoBehaviour
                 if (dashDire.y == -1)
                 {
                     rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-                    DuringDash = false;
+                    duringDash = false;
                 }
                 else
                 {
                     rb.linearVelocity = new Vector2(0, 0);
-                    DuringDash = false;
+                    duringDash = false;
                 }
                 SqueezeVertical();
             }
@@ -474,7 +512,7 @@ public class PlayerControl : MonoBehaviour
 
     private void SqueezeVertical()
     {
-        if (DuringDash)
+        if (duringDash)
         {
             transform.localScale = bodySqueezeSize;
             transform.localScale = new Vector3(transform.localScale.x, squeezeAmount, 1);
@@ -488,12 +526,12 @@ public class PlayerControl : MonoBehaviour
 
     private void DieDetect()
     {
-        if (Die)
+        if (isDead)
         {
             //die.Play();
             dieTime += 1;
             //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
-            Die = false;
+            isDead = false;
             transform.position = reSpawnPos;
             return;
         }
@@ -518,19 +556,38 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (currentPlatform != null)
+        {
+            currentPlatform = null;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         //if (other.gameObject.layer == ground)
         //{
-        //    OnGround = true;
+        //    onGround = true;
 
         //}
         //else
         //{
-        //    OnGround = false;
+        //    onGround = false;
         //}
 
+        if (other.CompareTag("Platform"))
+        {
+            Debug.Log("touch platform");
+            if (currentPlatform = null)
+            {
+                Debug.Log("Set Platform");
+                lastPlatformPos = other.GetComponent<GameObject>().transform.position;
+                currentPlatform = other.GetComponent<GameObject>();
+            }
+            
+            MoveWithPlatform();
+        }
 
         if (other.gameObject.CompareTag("Item"))
         {
@@ -542,7 +599,7 @@ public class PlayerControl : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Die = true;
+            isDead = true;
             DieDetect();
         }
 

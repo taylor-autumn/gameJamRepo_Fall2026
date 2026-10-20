@@ -19,16 +19,23 @@ public class MovingPlatform : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(currentPoint.position, destinationPos.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, destinationPos.position, moveSpeed * Time.deltaTime);
 
 
         if (transform.position == destinationPos.position)
         {
-            Vector3 lastDestination = currentPoint.position; 
-            currentPoint = destinationPos;
-            destinationPos;
+            SwitchDestinationPoint();
         }
     }
+
+    private void SwitchDestinationPoint()
+    {
+        Transform lastPoint = currentPoint;
+        currentPoint = destinationPos;
+        destinationPos = lastPoint;
+
+    }
+
 }
