@@ -120,9 +120,8 @@ public class PlayerControl : MonoBehaviour
         //jumpHeld = Input.GetButton("Jump");
 
         DashDirection();
-        Dash();
-        WallJump();
-        //anim.SetFloat("Running", Mathf.Abs(horizontalMove));
+        //Dash();
+        //WallJump();
         if (WallCollide && !OnGround && rb.linearVelocity.y <= 0 && !DuringWallJump && Input.GetKey(faceDirKey))
         {
             WallSlide();
@@ -515,6 +514,17 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.layer == ground)
+        {
+            OnGround = true;
+
+        }
+        else
+        {
+            OnGround = false;
+        }
+
+
         if (other.gameObject.CompareTag("Item"))
         {
             collect.Play();
