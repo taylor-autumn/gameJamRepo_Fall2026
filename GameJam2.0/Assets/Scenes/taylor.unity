@@ -1718,9 +1718,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6338499903946037425, guid: 713238fb618b4e44bae894af2bb55d89, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7770944743407491358, guid: 713238fb618b4e44bae894af2bb55d89, type: 3}
       propertyPath: m_Name
       value: scientist
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406988421861755353, guid: 713238fb618b4e44bae894af2bb55d89, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
