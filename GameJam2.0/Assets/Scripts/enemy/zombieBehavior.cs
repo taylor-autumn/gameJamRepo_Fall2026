@@ -222,9 +222,9 @@ public class zombieBehavior : MonoBehaviour
     {
         zombieAnim.SetTrigger("attack");
         //SOUND FOR ATTACK HERE===============================
-        yield return new WaitForSeconds(1f); //maybe change this for player die===============
+        yield return new WaitForSeconds(0.4f); //maybe change this for player die===============
 
-        attackCollider.enabled = false;
+        attackCollider.enabled = true;
         if (type == zombieType.mover)
         {
             state = zombieState.moving;
@@ -234,7 +234,7 @@ public class zombieBehavior : MonoBehaviour
             switchZombieBehavior();
         }
         yield return new WaitForSeconds(0.5f);
-        attackCollider.enabled = true;
+        attackCollider.enabled = false;
     }
 
 }

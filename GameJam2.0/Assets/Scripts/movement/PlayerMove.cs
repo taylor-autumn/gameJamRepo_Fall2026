@@ -122,14 +122,14 @@ public class PlayerControl : MonoBehaviour
         DashDirection();
         //Dash();
         //WallJump();
-        if (WallCollide && !OnGround && rb.linearVelocity.y <= 0 && !DuringWallJump && Input.GetKey(faceDirKey))
-        {
-            WallSlide();
-        }
+        //if (WallCollide && !OnGround && rb.linearVelocity.y <= 0 && !DuringWallJump && Input.GetKey(faceDirKey))
+        //{
+        //    WallSlide();
+        //}
 
         JumpControl();
 
-        Climb();
+        //Climb();
 
         if (infiniteJump == true)
         {
@@ -521,15 +521,15 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == ground)
-        {
-            OnGround = true;
+        //if (other.gameObject.layer == ground)
+        //{
+        //    OnGround = true;
 
-        }
-        else
-        {
-            OnGround = false;
-        }
+        //}
+        //else
+        //{
+        //    OnGround = false;
+        //}
 
 
         if (other.gameObject.CompareTag("Item"))
