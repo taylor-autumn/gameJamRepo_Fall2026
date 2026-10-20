@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour
 
     // Jump
     [SerializeField] private float jumpForce;
-    [SerializeField] private float jumpHoldForce = 2f;
+    //[SerializeField] private float jumpHoldForce = 2f;
     [SerializeField] private float jumpHoldDuration = 0.1f;
     [SerializeField] private float coyoteTime = 0.2f;
     public bool OnGround;
@@ -120,9 +120,8 @@ public class PlayerControl : MonoBehaviour
         //jumpHeld = Input.GetButton("Jump");
 
         DashDirection();
-        Dash();
-        WallJump();
-        //anim.SetFloat("Running", Mathf.Abs(horizontalMove));
+        //Dash();
+        //WallJump();
         if (WallCollide && !OnGround && rb.linearVelocity.y <= 0 && !DuringWallJump && Input.GetKey(faceDirKey))
         {
             WallSlide();
@@ -491,51 +490,78 @@ public class PlayerControl : MonoBehaviour
     {
         if (Die)
         {
-            die.Play();
+            //die.Play();
             dieTime += 1;
-            dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
+            //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
             Die = false;
             transform.position = reSpawnPos;
+            return;
         }
-        if (coll.IsTouchingLayers(spike)) //|| bodyColl.IsTouchingLayers(spike))
+
+        //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
+        //die.Play();
+
+        //if (coll.IsTouchingLayers(spike)) //|| bodyColl.IsTouchingLayers(spike))
+        //{
+        //    transform.position = reSpawnPos;
+        //    dieTime += 1;
+        //    dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
+        //    die.Play();
+        //}
+
+        if (transform.position.y <= -10f)
         {
             transform.position = reSpawnPos;
             dieTime += 1;
-            dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
-            die.Play();
-        }
-        if (transform.position.y <= -8.74f)
-        {
-            transform.position = reSpawnPos;
-            dieTime += 1;
-            dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
+            //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
             die.Play();
         }
     }
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.layer == ground)
+        {
+            OnGround = true;
+
+        }
+        else
+        {
+            OnGround = false;
+        }
+
+
         if (other.gameObject.CompareTag("Item"))
         {
             collect.Play();
             Destroy(other.gameObject);
         }
 
+        //Check collide with Enemy
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Die = true;
+            DieDetect();
+        }
+
+        //Check and Update Respawn Point
         if (other.gameObject.CompareTag("CheckPoint"))
         {
             reSpawnPos = transform.position;
         }
-        else if (other.gameObject.CompareTag("Goal"))
-        {
-            win.Play();
-            bgm.Stop();
-            button.transform.position = lobbyButtonPos;
-            if (dieTime < PlayerPrefs.GetInt("HighScore", 999))
-            {
-                PlayerPrefs.SetInt("HighScore", dieTime);
-                highScoreText.text = "Least Dead: " + dieTime;
-            }
-        }
+        //else if (other.gameObject.CompareTag("Goal"))
+        //{
+        //    win.Play();
+        //    bgm.Stop();
+        //    button.transform.position = lobbyButtonPos;
+        //    if (dieTime < PlayerPrefs.GetInt("HighScore", 999))
+        //    {
+        //        PlayerPrefs.SetInt("HighScore", dieTime);
+        //        highScoreText.text = "Least Dead: " + dieTime;
+        //    }
+        //}
     }
 }
 
