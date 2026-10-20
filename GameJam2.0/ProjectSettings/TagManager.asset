@@ -10,6 +10,7 @@ TagManager:
   - Item
   - CheckPoint
   - Goal
+  - Enemy
   layers:
   - Default
   - TransparentFX
