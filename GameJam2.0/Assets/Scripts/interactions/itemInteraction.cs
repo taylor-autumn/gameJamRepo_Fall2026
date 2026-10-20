@@ -7,16 +7,13 @@ public class itemInteraction : MonoBehaviour
     public bool canTryDoor = false;
     public GameObject childOfTargetDoor;
 
-    private void Awake()
-    {
-        // Keeps this GameObject alive when changing scenes
-        DontDestroyOnLoad(gameObject);
-    }
+    [Header("Interact Box")]
+    public GameObject interactBox;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        interactBox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,32 +44,72 @@ public class itemInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //=================================ITEMS=================================
         //if collides with keycard
         if (collision.CompareTag("keyCard"))
         {
             Destroy(collision.gameObject);
             print("Picked up keycard");
             playerStatus.instance.hasKeyCard = true;
+            playerStatus.instance.updateUi(); //update ui;
+        }
+        //if collides with screwdriver
+        if (collision.CompareTag("screwdriver"))
+        {
+            Destroy(collision.gameObject);
+            print("Picked up screwedriver");
+            playerStatus.instance.hasScrewdriver = true;
+            playerStatus.instance.updateUi(); //update ui;
+        }
+        //if collides with wrench
+        if (collision.CompareTag("wrench"))
+        {
+            Destroy(collision.gameObject);
+            print("Picked up wrench");
+            playerStatus.instance.hasWrench = true;
+            playerStatus.instance.updateUi(); //update ui;
+        }
+        //if collides with flashlight
+        if (collision.CompareTag("flashlight"))
+        {
+            Destroy(collision.gameObject);
+            print("Picked up flashlight");
+            playerStatus.instance.hasFlashlight = true;
+            playerStatus.instance.updateUi(); //update ui;
+        }
+        //if collides with usb
+        if (collision.CompareTag("usb"))
+        {
+            Destroy(collision.gameObject);
+            print("Picked up usb");
+            playerStatus.instance.hasUSB = true;
+            playerStatus.instance.updateUi(); //update ui;
         }
 
+        //=================================door stuff==============================
         //if in door area
-        if (collision.CompareTag("door"))
+        if (collision.CompareTag("door") || collision.CompareTag("area"))
         {
-            canTryDoor = true;
-            print("In door");
-            childOfTargetDoor = collision.gameObject;
+            print("In door/area");
+            interactBox.SetActive(true);
+            if (collision.CompareTag("door"))
+            {
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
+            
         }
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //if in door area
+        print("left door/area");
+        interactBox.SetActive(false);
         if (collision.CompareTag("door"))
         {
-            childOfTargetDoor = null;
             canTryDoor = false;
-            print("leave door");
+            childOfTargetDoor = null;
         }
     }
 
