@@ -9,7 +9,9 @@ public class GoalLight : MonoBehaviour
         pipeRoom
     }
     public RoomType theroomtype;
-    public bool isRoom;
+    public bool codeCompleted = false;
+    public bool ventCompleted = false;
+    public bool pipeCompleted = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,16 +24,32 @@ public class GoalLight : MonoBehaviour
         switch (theroomtype)
         {
             case RoomType.CodeRoom:
-            isRoom = true;
+            codeCompletedCheck();
+            codeCompleted = true;
             break;
 
             case RoomType.VentRoom:
-            isRoom = true;
+            ventCompletedCheck();
+            ventCompleted = false;
             break;
 
             case RoomType.pipeRoom:
-            isRoom = true;
+            pipeCompletedCheck();
+            pipeCompleted = false;
             break;
         }
+    }
+
+    private void codeCompletedCheck()
+    {
+        
+    }
+    private void ventCompletedCheck()
+    {
+        
+    }
+    private void pipeCompletedCheck()
+    {
+        
     }
 }
