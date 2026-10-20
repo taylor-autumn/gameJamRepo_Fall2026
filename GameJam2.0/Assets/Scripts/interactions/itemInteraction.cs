@@ -2,14 +2,6 @@ using UnityEngine;
 
 public class itemInteraction : MonoBehaviour
 {
-    [Header("Item Bools")]
-    public bool hasKeyCard = false;
-
-    [Header("Level Bools")]
-    public bool finishedWrenchLevel = false;
-    public bool finishedCodeLevel = false;
-    public bool finishedScrewDriverLevel = false;
-    public bool finished4thLevel = false;
 
     [Header("Door stuff")]
     public bool canTryDoor = false;
@@ -30,7 +22,7 @@ public class itemInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && hasKeyCard && canTryDoor)
+        if (Input.GetKeyDown(KeyCode.E) && playerStatus.instance.hasKeyCard && canTryDoor)
         {
             Transform door = childOfTargetDoor.transform.parent;
             doorInfo thatDoorInfo = door.GetComponent<doorInfo>();
@@ -60,7 +52,7 @@ public class itemInteraction : MonoBehaviour
         {
             Destroy(collision.gameObject);
             print("Picked up keycard");
-            hasKeyCard = true;
+            playerStatus.instance.hasKeyCard = true;
         }
 
         //if in door area

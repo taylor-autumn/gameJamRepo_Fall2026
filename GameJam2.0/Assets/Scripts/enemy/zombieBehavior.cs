@@ -8,7 +8,7 @@ public class zombieBehavior : MonoBehaviour
     [Header("Main Stats")]
     public float speed;
     public Animator zombieAnim;
-    public bool isAttacking = false;
+    public Collider2D attackCollider;
 
     [Header("Target stuff")]
     public bool justStarted = false;
@@ -27,6 +27,8 @@ public class zombieBehavior : MonoBehaviour
     public float minIdle = 2f;
     public float maxIdle = 5f;
 
+
+    
     public enum zombieType
     {
         autonomous,
@@ -201,26 +203,26 @@ public class zombieBehavior : MonoBehaviour
         {
             print("HIT PLAYER!");
             state = zombieState.attacking;
+
         }
     }
 
     public IEnumerator zombieAttack()
     {
-        isAttacking = true;
-        print("is attacking = " + isAttacking);
         zombieAnim.SetTrigger("attack");
         //SOUND FOR ATTACK HERE===============================
-        yield return new WaitForSeconds(0.45f); //maybe change this for player die===============
+        yield return new WaitForSeconds(1f); //maybe change this for player die===============
 
-        isAttacking = false;
+        attackCollider.gameObject.SetActive(true);
         if (type == zombieType.mover)
         {
             state = zombieState.moving;
         }
         else
         {
-            //function to pick / go back to idle?
+            switchZombieBehavior();
         }
+        yield return new WaitForSeconds(0.5f);
 
     }
 
