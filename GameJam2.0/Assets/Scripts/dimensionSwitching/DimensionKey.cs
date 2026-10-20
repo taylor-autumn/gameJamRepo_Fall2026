@@ -8,8 +8,8 @@ public class DimensionKey : MonoBehaviour
     public float minScale = 0.5f;
     public float maxScale = 2f;
     public float scaleAmount = 0.01f;
-    public List<GameObject> BlownUpInteractables;
-    public List<GameObject> NotBlownInteractables;
+    public List<GameObject> ToDisableExplodedColliders;
+    public List<GameObject> ToDisablePreExplosionColliders;
     private bool Toggle = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,11 +30,11 @@ public class DimensionKey : MonoBehaviour
             scale.x = Mathf.Max(scale.x - scaleAmount, minScale);
             scale.y = Mathf.Max(scale.y - scaleAmount, minScale);
             maskingobject.transform.localScale = scale;
-            foreach(GameObject blown in BlownUpInteractables)
+            foreach(GameObject blown in ToDisableExplodedColliders)
             {
                 blown.GetComponent<Collider2D>().enabled = true;
             }
-            foreach(GameObject notBlown in NotBlownInteractables)
+            foreach(GameObject notBlown in ToDisablePreExplosionColliders)
             {
                 notBlown.GetComponent<Collider2D>().enabled = false;
             }
@@ -44,17 +44,17 @@ public class DimensionKey : MonoBehaviour
             scale.x = Mathf.Min(scale.x + scaleAmount, maxScale);
             scale.y = Mathf.Min(scale.y + scaleAmount, maxScale);
             maskingobject.transform.localScale = scale;
-            foreach(GameObject blown in BlownUpInteractables)
+            foreach(GameObject blown in ToDisableExplodedColliders)
             {
                 blown.GetComponent<Collider2D>().enabled = false;
             }
-            foreach(GameObject notBlown in NotBlownInteractables)
+            foreach(GameObject notBlown in ToDisablePreExplosionColliders)
             {
                 notBlown.GetComponent<Collider2D>().enabled = true;
             }
         }
     }
-            //     foreach(GameObject notBlown in NotBlownInteractables)
+            //     foreach(GameObject notBlown in ToDisablePreExplosionColliders)
             // {
             //     foreach (Collider2D col in notBlown.GetComponentsInChildren<Collider2D>())
             //     {
