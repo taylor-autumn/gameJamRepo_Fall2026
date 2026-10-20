@@ -90,7 +90,7 @@ public class itemInteraction : MonoBehaviour
         //if in door area
         if (collision.CompareTag("door") || collision.CompareTag("area"))
         {
-            print("In door/area");
+            //print("In door/area");
             interactBox.SetActive(true);
             if (collision.CompareTag("door"))
             {
@@ -104,7 +104,7 @@ public class itemInteraction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print("left door/area");
+        //print("left door/area");
         interactBox.SetActive(false);
         if (collision.CompareTag("door"))
         {
