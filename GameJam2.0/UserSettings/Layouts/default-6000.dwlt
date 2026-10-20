@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1440
     height: 810
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -69,8 +69,8 @@ MonoBehaviour:
     y: 0
     width: 340
     height: 754
-  m_MinSize: {x: 276, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -272,8 +272,8 @@ MonoBehaviour:
     y: 0
     width: 827.5
     height: 456
-  m_MinSize: {x: 202, y: 226}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -412,7 +412,7 @@ MonoBehaviour:
     m_DynamicPanelBehavior: 0
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 0
+  m_LastSelectedObjectID: -4118
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -728,7 +728,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/items
+    - Assets/Sprites/enemies
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -738,25 +738,24 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/items
+  - Assets/Sprites/enemies
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Owner\OneDrive\Documents\GitHub\gameJam\gameFall2026\gameJamRepo_Fall2026\GameJam2.0
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 196}
+    scrollPos: {x: 0, y: 116}
     m_SelectedIDs:
-    - m_Data: 50874
+    - m_Data: 50394
     m_LastClickedID:
-      m_Data: 50874
+      m_Data: 50394
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 50130
-    - m_Data: 50132
-    - m_Data: 50134
-    - m_Data: 50136
-    - m_Data: 50270
+    - m_Data: 50388
+    - m_Data: 50390
+    - m_Data: 50392
+    - m_Data: 50394
     - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -790,10 +789,10 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 50130
-    - m_Data: 50132
-    - m_Data: 50134
-    - m_Data: 50136
+    - m_Data: 50388
+    - m_Data: 50390
+    - m_Data: 50392
+    - m_Data: 50394
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -821,8 +820,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 51338
-    m_LastClickedInstanceID: 51338
+    - m_Data: -4118
+    m_LastClickedInstanceID: -4118
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 50496
@@ -901,7 +900,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 432
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -949,14 +948,12 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: 51338
+      - m_Data: -4118
       m_LastClickedID:
-        m_Data: 0
+        m_Data: -4118
       m_ExpandedIDs:
-      - m_Data: -1316
-      - m_Data: 49442
-      - m_Data: 49532
-      - m_Data: 49702
+      - m_Data: -1640
+      - m_Data: 49956
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1535,9 +1532,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -0.3593724, y: 0.27212158, z: -0.06593705}
+    m_Target: {x: -0.042915165, y: 0.5867439, z: 90}
     speed: 2
-    m_Value: {x: -0.3593724, y: 0.27212158, z: -0.06593705}
+    m_Value: {x: -0.042915165, y: 0.5867439, z: 90}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1587,9 +1584,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.954852
+    m_Target: 5.908753
     speed: 2
-    m_Value: 4.954852
+    m_Value: 5.908753
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1705,7 +1702,7 @@ MonoBehaviour:
       y: 21
       width: 825.5
       height: 409
-    m_Scale: {x: 0.75740737, y: 0.7574074}
+    m_Scale: {x: 0.7574074, y: 0.7574074}
     m_Translation: {x: 412.75, y: 204.5}
     m_MarginLeft: 0
     m_MarginRight: 0

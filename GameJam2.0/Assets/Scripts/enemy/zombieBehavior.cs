@@ -51,7 +51,15 @@ public class zombieBehavior : MonoBehaviour
         justStarted = true;
 
         //set random speed
-        speed = Random.Range(3, 6);
+        if (type == zombieType.autonomous)
+        {
+            speed = Random.Range(5, 7);
+        }
+        else
+        {
+            speed = Random.Range(3, 6);
+        }
+
 
         //print("Zombie type is " + type);
         if (type == zombieType.autonomous)
