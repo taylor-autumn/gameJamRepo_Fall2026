@@ -1,19 +1,34 @@
 fileFormatVersion: 2
-guid: 6c9aff838fc0cc140859f85cb5960776
+guid: 70b43f969016b354685550eaebfac380
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4871826588278895511
-    second: PreExPlatformsEdit-export_0
+      213: 4018557785389929256
+    second: PostExPlatforms_0
   - first:
-      213: 8126779235685756531
-    second: PreExPlatformsEdit-export_1
+      213: 4210218396493355623
+    second: PostExPlatforms_1
   - first:
-      213: -5881325780479260248
-    second: PreExPlatformsEdit-export_2
+      213: -8340849428347293612
+    second: PostExPlatforms_2
   - first:
-      213: 1739788806338124144
-    second: PreExPlatformsEdit-export_3
+      213: 7853973944692911291
+    second: PostExPlatforms_3
+  - first:
+      213: -891651649242216532
+    second: PostExPlatforms_4
+  - first:
+      213: 2254016413907551921
+    second: PostExPlatforms_5
+  - first:
+      213: 8585452158909492572
+    second: PostExPlatforms_6
+  - first:
+      213: 7188440867973393231
+    second: PostExPlatforms_7
+  - first:
+      213: 674884059608167925
+    second: PostExPlatforms_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,12 +137,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_0
+      name: PostExPlatforms_0
       rect:
         serializedVersion: 2
         x: 0
         y: 48
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -137,19 +152,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 793baa158743c9340800000000000000
-      internalID: 4871826588278895511
+      spriteID: 8231c8bb309c4c730800000000000000
+      internalID: 4018557785389929256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_1
+      name: PostExPlatforms_1
       rect:
         serializedVersion: 2
-        x: 13
+        x: 16
         y: 48
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -159,19 +174,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 37ee11748ae18c070800000000000000
-      internalID: 8126779235685756531
+      spriteID: 76a1dcd2353bd6a30800000000000000
+      internalID: 4210218396493355623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_2
+      name: PostExPlatforms_2
       rect:
         serializedVersion: 2
-        x: 26
+        x: 32
         y: 48
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -181,36 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a9cf2efc55516ea0800000000000000
-      internalID: -5881325780479260248
+      spriteID: 450f65af2a95f3c80800000000000000
+      internalID: -8340849428347293612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_3
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 48
-        width: 9
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0791cf993b8f42810800000000000000
-      internalID: 1739788806338124144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PreExPlatformsEdit-export_4
+      name: PostExPlatforms_3
       rect:
         serializedVersion: 2
         x: 48
@@ -223,16 +216,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ceda4fbebbf889c48ba6f53f5d5ed1ba
-      internalID: -411827182
+      spriteID: bbc2898c0bbeefc60800000000000000
+      internalID: 7853973944692911291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_5
+      name: PostExPlatforms_4
       rect:
         serializedVersion: 2
         x: 64
@@ -245,21 +238,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 274f0de7febea374ba0cc63a7423fe9a
-      internalID: 2060683013
+      spriteID: ca7c6879c8730a3f0800000000000000
+      internalID: -891651649242216532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_6
+      name: PostExPlatforms_5
       rect:
         serializedVersion: 2
         x: 80
         y: 48
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -267,21 +260,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 096e1f1faa7024d41b835dce4fbb6a61
-      internalID: 1639556691
+      spriteID: 1b60cd47cffd74f10800000000000000
+      internalID: 2254016413907551921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_7
+      name: PostExPlatforms_6
       rect:
         serializedVersion: 2
-        x: 93
+        x: 96
         y: 48
-        width: 11
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -289,43 +282,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d0436cad292bf3c4f95525da8aacab0f
-      internalID: -925116344
+      spriteID: c5d29e73047a52770800000000000000
+      internalID: 8585452158909492572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_8
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 48
-        width: 8
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d83eede2dc2d03941a5cc14750ce3937
-      internalID: -2082123852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PreExPlatformsEdit-export_9
+      name: PostExPlatforms_7
       rect:
         serializedVersion: 2
         x: 112
         y: 48
-        width: 12
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -333,21 +304,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 256df7799b6bf304c99309f4268befa8
-      internalID: 251735181
+      spriteID: f4b647822e872c360800000000000000
+      internalID: 7188440867973393231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_10
+      name: PostExPlatforms_8
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 48
-        width: 11
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -355,21 +326,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9887710def1e2f74b81f62857ca4316c
-      internalID: 581994995
+      spriteID: 5f5b48df97bad5900800000000000000
+      internalID: 674884059608167925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_11
+      name: PostExPlatforms_9
       rect:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -379,19 +350,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6015f61ada21ae4e803423e197e3b5e
-      internalID: 1608148303
+      spriteID: b8fca4b4e44ee2f4891b9370f6bf5d76
+      internalID: -670674626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_12
+      name: PostExPlatforms_10
       rect:
         serializedVersion: 2
-        x: 13
+        x: 16
         y: 32
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -401,19 +372,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51a5ebe9ee8a7154c9cd3536611b9b11
-      internalID: -619421899
+      spriteID: 72d9ceb3a4a6c9249b12b7ee3f856b39
+      internalID: 1108493447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_13
+      name: PostExPlatforms_11
       rect:
         serializedVersion: 2
-        x: 26
+        x: 32
         y: 32
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -423,41 +394,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3f52894f93a4e048a9f34f76cb1435f
-      internalID: -1680830101
+      spriteID: d9b7abfcaae738e479e7a43e9178ecd1
+      internalID: -2075249095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_14
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 32
-        width: 9
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7160c5ae094bb0642aa9c088faf52393
-      internalID: 1681832726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PreExPlatformsEdit-export_15
+      name: PostExPlatforms_12
       rect:
         serializedVersion: 2
         x: 48
         y: 32
-        width: 17
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -467,19 +416,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aea8a0e189d24864aabc05fd34539874
-      internalID: 382897659
+      spriteID: cb5a6ad40d479af4a8b66ee9006608c2
+      internalID: -40473106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_16
+      name: PostExPlatforms_13
       rect:
         serializedVersion: 2
-        x: 67
+        x: 64
         y: 32
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -489,19 +438,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5194966776ff5c845b890acf9a222c38
-      internalID: 450934630
+      spriteID: 575eda988ec20ec4a99c98dd3c1145dd
+      internalID: 76523024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_17
+      name: PostExPlatforms_14
       rect:
         serializedVersion: 2
         x: 80
         y: 32
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -511,19 +460,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a048e520f37e5f41bd7ee5d49aaa51b
-      internalID: -1361535137
+      spriteID: 023f6b1b7127eb04ea4ee95bdd8771c2
+      internalID: -237450884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_19
+      name: PostExPlatforms_15
       rect:
         serializedVersion: 2
-        x: 100
+        x: 96
         y: 32
-        width: 12
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -533,19 +482,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 313f91684d483e441bf4870cfe3641af
-      internalID: -295117295
+      spriteID: edc43264751b42b4d8d494e29e749ba0
+      internalID: 1606494073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_20
+      name: PostExPlatforms_16
       rect:
         serializedVersion: 2
-        x: 114
+        x: 112
         y: 32
-        width: 14
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -555,19 +504,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536ce86da6edd5841a8f009e541fd95b
-      internalID: 1016530147
+      spriteID: 70b90e5273f59fb47aec9c75d97ba4f2
+      internalID: 442505602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_21
+      name: PostExPlatforms_17
       rect:
         serializedVersion: 2
         x: 128
         y: 32
-        width: 14
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -577,19 +526,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad2963080d04e2341a29842448c43c58
-      internalID: 779906107
+      spriteID: 06217dac7a064c14bbb069171fe3cc08
+      internalID: -1350609455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_22
+      name: PostExPlatforms_18
       rect:
         serializedVersion: 2
         x: 0
         y: 16
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -599,19 +548,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c991643fa5bea2f479f908cf65640b41
-      internalID: 908141635
+      spriteID: 8424bff560530d347974840b3ef57488
+      internalID: 2057450798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_23
+      name: PostExPlatforms_19
       rect:
         serializedVersion: 2
-        x: 13
+        x: 16
         y: 16
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -621,19 +570,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aaa34e69b5ec61478f6246323838014
-      internalID: 1724702175
+      spriteID: 3036a7e7845dc404baad4f3f8e4b5c20
+      internalID: 1517630080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_24
+      name: PostExPlatforms_20
       rect:
         serializedVersion: 2
-        x: 26
+        x: 32
         y: 16
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -643,19 +592,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7774be67dac7458448f9206ee6311a9e
-      internalID: 1299229964
+      spriteID: 4c1eefd98aaadc5439f6dde27deb729c
+      internalID: 1426101860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_25
+      name: PostExPlatforms_21
       rect:
         serializedVersion: 2
-        x: 39
+        x: 48
         y: 16
-        width: 11
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -665,19 +614,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff1b960ed95784c48be90bb45aa028fb
-      internalID: 1452006259
+      spriteID: 7119118ed0ccf8242ae4051d634ca4d8
+      internalID: 1162508138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_26
+      name: PostExPlatforms_22
       rect:
         serializedVersion: 2
-        x: 50
+        x: 64
         y: 16
-        width: 15
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -687,41 +636,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 681185d322e902c41ad92c45d3a5530a
-      internalID: 1530144772
+      spriteID: fd661921141950e4baa095a4f14dace6
+      internalID: 1881635154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_27
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 16
-        width: 13
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbdaef33417a46c43ab1eb3a7edb463c
-      internalID: 2039835448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PreExPlatformsEdit-export_28
+      name: PostExPlatforms_23
       rect:
         serializedVersion: 2
         x: 80
         y: 16
-        width: 11
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -731,19 +658,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1e406546961c3e4fb22fe2e1214b5ca
-      internalID: -1366772537
+      spriteID: 6c415e482388c334eb2db1de103e6707
+      internalID: 2060422411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_29
+      name: PostExPlatforms_24
       rect:
         serializedVersion: 2
-        x: 91
+        x: 96
         y: 16
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -753,36 +680,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bccb58c848f926b4ca761b9c281f7db5
-      internalID: -1725687931
+      spriteID: a18aef19d6a77fd4f802fa2a3b412ca3
+      internalID: 75927743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_30
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 16
-        width: 8
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c439c34c45458d44482f58ea67f80468
-      internalID: 970690570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PreExPlatformsEdit-export_31
+      name: PostExPlatforms_25
       rect:
         serializedVersion: 2
         x: 112
@@ -797,14 +702,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a44dcbc58610294595e855ab68a8777
-      internalID: 1707794319
+      spriteID: 837e9e519ccebfb4b89ec1ab27de2880
+      internalID: 1268805804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_32
+      name: PostExPlatforms_26
       rect:
         serializedVersion: 2
         x: 128
@@ -819,19 +724,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9f91547e178df84599ec24ceb978acc
-      internalID: 1255715304
+      spriteID: d1182fe02c6b49d479199f95b408804a
+      internalID: -1632064893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_33
+      name: PostExPlatforms_27
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -841,19 +746,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1100e58775ca00c4b84254494cac009a
-      internalID: 1605052465
+      spriteID: b4f231d9371b7514fb617ddea8d8d498
+      internalID: -469466339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_34
+      name: PostExPlatforms_28
       rect:
         serializedVersion: 2
-        x: 13
+        x: 16
         y: 0
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -863,19 +768,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2ce37653239e0b4f8306321d3f8aac3
-      internalID: 1395862206
+      spriteID: 4681ecc98716a1f48bfd05d2cc35cc61
+      internalID: -920349128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_35
+      name: PostExPlatforms_29
       rect:
         serializedVersion: 2
-        x: 26
+        x: 32
         y: 0
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -885,36 +790,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8593f5f767f43024bb93d367d7c88da7
-      internalID: -1870291372
+      spriteID: fb137f17e9358cd4d859e8d5cca213bd
+      internalID: 1274341432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_36
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 0
-        width: 13
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89d811134152ef34986f829b8fbd67ed
-      internalID: 785536201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PreExPlatformsEdit-export_37
+      name: PostExPlatforms_30
       rect:
         serializedVersion: 2
         x: 48
@@ -929,14 +812,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b146d0e64a25d444bbf1115b8617619
-      internalID: 870834301
+      spriteID: a6a17de333536e6438349dc81bc17900
+      internalID: 1543910711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_38
+      name: PostExPlatforms_31
       rect:
         serializedVersion: 2
         x: 64
@@ -951,14 +834,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c343ee3ed6020e4ca72ec819a00e84e
-      internalID: 476830481
+      spriteID: 957808a2c770a6e45868f164c547e8ff
+      internalID: 1995226364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_39
+      name: PostExPlatforms_32
       rect:
         serializedVersion: 2
         x: 80
@@ -973,14 +856,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5dc0c1f77ed1ae45a76a51d24837af0
-      internalID: 734913466
+      spriteID: 8559dfe4a19ca6a40b2cdc37444a0324
+      internalID: 1281668998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_40
+      name: PostExPlatforms_33
       rect:
         serializedVersion: 2
         x: 96
@@ -995,14 +878,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8828b5cc1e4f934d90a1fed992341e9
-      internalID: 174398117
+      spriteID: f035f785ccf62f84d839f541fdf46343
+      internalID: -357993943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_42
+      name: PostExPlatforms_34
       rect:
         serializedVersion: 2
         x: 112
@@ -1017,14 +900,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f09419a846e11704da4859620275c63e
-      internalID: -1539927298
+      spriteID: 754fd2194d0731945b4abc908e545587
+      internalID: 366703014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PreExPlatformsEdit-export_43
+      name: PostExPlatforms_35
       rect:
         serializedVersion: 2
         x: 128
@@ -1039,8 +922,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53fde8a0ffe6ec049b3020d0b1b1ee41
-      internalID: -173084392
+      spriteID: 0c768924f1a5b414da5bf7fd3be5d571
+      internalID: 1547557845
       vertices: []
       indices: 
       edges: []
@@ -1049,7 +932,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 15c06f7739cd2eb4fb9c3df0de96b1eb
+    spriteID: e551f22357bfba347a21cb1a784e8791
     internalID: 0
     vertices: []
     indices: 
@@ -1059,52 +942,44 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":11.0,"y":4.0},"gridSpriteSize":{"x":13.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":4.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      PreExPlatformsEdit-export_0: 4871826588278895511
-      PreExPlatformsEdit-export_1: 8126779235685756531
-      PreExPlatformsEdit-export_10: 581994995
-      PreExPlatformsEdit-export_11: 1608148303
-      PreExPlatformsEdit-export_12: -619421899
-      PreExPlatformsEdit-export_13: -1680830101
-      PreExPlatformsEdit-export_14: 1681832726
-      PreExPlatformsEdit-export_15: 382897659
-      PreExPlatformsEdit-export_16: 450934630
-      PreExPlatformsEdit-export_17: -1361535137
-      PreExPlatformsEdit-export_18: -1350858077
-      PreExPlatformsEdit-export_19: -295117295
-      PreExPlatformsEdit-export_2: -5881325780479260248
-      PreExPlatformsEdit-export_20: 1016530147
-      PreExPlatformsEdit-export_21: 779906107
-      PreExPlatformsEdit-export_22: 908141635
-      PreExPlatformsEdit-export_23: 1724702175
-      PreExPlatformsEdit-export_24: 1299229964
-      PreExPlatformsEdit-export_25: 1452006259
-      PreExPlatformsEdit-export_26: 1530144772
-      PreExPlatformsEdit-export_27: 2039835448
-      PreExPlatformsEdit-export_28: -1366772537
-      PreExPlatformsEdit-export_29: -1725687931
-      PreExPlatformsEdit-export_3: 1739788806338124144
-      PreExPlatformsEdit-export_30: 970690570
-      PreExPlatformsEdit-export_31: 1707794319
-      PreExPlatformsEdit-export_32: 1255715304
-      PreExPlatformsEdit-export_33: 1605052465
-      PreExPlatformsEdit-export_34: 1395862206
-      PreExPlatformsEdit-export_35: -1870291372
-      PreExPlatformsEdit-export_36: 785536201
-      PreExPlatformsEdit-export_37: 870834301
-      PreExPlatformsEdit-export_38: 476830481
-      PreExPlatformsEdit-export_39: 734913466
-      PreExPlatformsEdit-export_4: -411827182
-      PreExPlatformsEdit-export_40: 174398117
-      PreExPlatformsEdit-export_41: -525628825
-      PreExPlatformsEdit-export_42: -1539927298
-      PreExPlatformsEdit-export_43: -173084392
-      PreExPlatformsEdit-export_5: 2060683013
-      PreExPlatformsEdit-export_6: 1639556691
-      PreExPlatformsEdit-export_7: -925116344
-      PreExPlatformsEdit-export_8: -2082123852
-      PreExPlatformsEdit-export_9: 251735181
+      PostExPlatforms_0: 4018557785389929256
+      PostExPlatforms_1: 4210218396493355623
+      PostExPlatforms_10: 1108493447
+      PostExPlatforms_11: -2075249095
+      PostExPlatforms_12: -40473106
+      PostExPlatforms_13: 76523024
+      PostExPlatforms_14: -237450884
+      PostExPlatforms_15: 1606494073
+      PostExPlatforms_16: 442505602
+      PostExPlatforms_17: -1350609455
+      PostExPlatforms_18: 2057450798
+      PostExPlatforms_19: 1517630080
+      PostExPlatforms_2: -8340849428347293612
+      PostExPlatforms_20: 1426101860
+      PostExPlatforms_21: 1162508138
+      PostExPlatforms_22: 1881635154
+      PostExPlatforms_23: 2060422411
+      PostExPlatforms_24: 75927743
+      PostExPlatforms_25: 1268805804
+      PostExPlatforms_26: -1632064893
+      PostExPlatforms_27: -469466339
+      PostExPlatforms_28: -920349128
+      PostExPlatforms_29: 1274341432
+      PostExPlatforms_3: 7853973944692911291
+      PostExPlatforms_30: 1543910711
+      PostExPlatforms_31: 1995226364
+      PostExPlatforms_32: 1281668998
+      PostExPlatforms_33: -357993943
+      PostExPlatforms_34: 366703014
+      PostExPlatforms_35: 1547557845
+      PostExPlatforms_4: -891651649242216532
+      PostExPlatforms_5: 2254016413907551921
+      PostExPlatforms_6: 8585452158909492572
+      PostExPlatforms_7: 7188440867973393231
+      PostExPlatforms_8: 674884059608167925
+      PostExPlatforms_9: -670674626
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
