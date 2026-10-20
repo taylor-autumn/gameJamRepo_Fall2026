@@ -72,6 +72,9 @@ public class zombieBehavior : MonoBehaviour
 
         //get anim
         zombieAnim = GetComponent<Animator>();
+
+        //set attackCollider off
+        attackCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -221,7 +224,7 @@ public class zombieBehavior : MonoBehaviour
         //SOUND FOR ATTACK HERE===============================
         yield return new WaitForSeconds(1f); //maybe change this for player die===============
 
-        attackCollider.gameObject.SetActive(true);
+        attackCollider.enabled = false;
         if (type == zombieType.mover)
         {
             state = zombieState.moving;
@@ -231,7 +234,7 @@ public class zombieBehavior : MonoBehaviour
             switchZombieBehavior();
         }
         yield return new WaitForSeconds(0.5f);
-
+        attackCollider.enabled = true;
     }
 
 }
