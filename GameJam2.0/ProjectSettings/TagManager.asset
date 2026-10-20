@@ -11,6 +11,11 @@ TagManager:
   - CheckPoint
   - Goal
   - Enemy
+  - wrench
+  - screwdriver
+  - flashlight
+  - usb
+  - area
   layers:
   - Default
   - TransparentFX
