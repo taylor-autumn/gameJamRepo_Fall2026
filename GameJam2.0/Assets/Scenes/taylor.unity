@@ -593,7 +593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &615430779
 SpriteRenderer:
   serializedVersion: 2
@@ -1844,17 +1844,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5682210482779768012, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
-      propertyPath: interactBox
-      value: 
-      objectReference: {fileID: 925716383}
     - target: {fileID: 7201598162560148810, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.10207
+      value: -3.37
       objectReference: {fileID: 0}
     - target: {fileID: 7201598162560148810, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.61255
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 7201598162560148810, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1891,7 +1887,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3427279677014876306, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
 --- !u!1001 &4077775059092398772
 PrefabInstance:
