@@ -12,6 +12,11 @@ TagManager:
   - Goal
   - Enemy
   - Platform
+  - wrench
+  - flashlight
+  - usb
+  - screwdriver
+  - area
   layers:
   - Default
   - TransparentFX
