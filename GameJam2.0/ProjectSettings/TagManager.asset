@@ -17,6 +17,7 @@ TagManager:
   - usb
   - screwdriver
   - area
+  - computer
   layers:
   - Default
   - TransparentFX

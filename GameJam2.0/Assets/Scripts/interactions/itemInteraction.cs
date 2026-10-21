@@ -1,4 +1,8 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using static UnityEngine.LowLevelPhysics2D.PhysicsLayers;
+using static UnityEngine.Rendering.DebugUI;
 
 public class itemInteraction : MonoBehaviour
 {
@@ -7,6 +11,14 @@ public class itemInteraction : MonoBehaviour
     public bool canTryDoor = false;
     public GameObject childOfTargetDoor;
 
+    [Header("Computer stuff")]
+    public bool canOpenLaptop = false;
+    public GameObject compUi;
+    public TMP_Text passwordText;
+    public TMP_InputField inputText;
+    public string code;
+    public bool decoded = false;
+
     [Header("Interact Box")]
     public GameObject interactBox;
 
@@ -14,6 +26,7 @@ public class itemInteraction : MonoBehaviour
     void Start()
     {
         interactBox.SetActive(false);
+        compUi.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,6 +53,23 @@ public class itemInteraction : MonoBehaviour
             }
 
         }
+        if (Input.GetKeyDown(KeyCode.E) && canOpenLaptop)
+        {
+            print("opening comp");
+            compUi.SetActive(true);
+            inputText.ActivateInputField();
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && compUi.activeInHierarchy)
+        {
+            print("Closing comp");
+            compUi.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && compUi.activeInHierarchy)
+        {
+            print("inputting password");
+            checkPassword();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -86,18 +116,25 @@ public class itemInteraction : MonoBehaviour
             playerStatus.instance.updateUi(); //update ui;
         }
 
-        //=================================door stuff==============================
+        //=================================collide with areas stuff==============================
         //if in door area
-        if (collision.CompareTag("door") || collision.CompareTag("area"))
+        if (collision.CompareTag("door") || collision.CompareTag("area") || collision.CompareTag("computer"))
         {
             //print("In door/area");
-            interactBox.SetActive(true);
-            if (collision.CompareTag("door"))
+            if (collision.CompareTag("door") && playerStatus.instance.hasKeyCard)
             {
+                interactBox.SetActive(true);
                 canTryDoor = true;
                 childOfTargetDoor = collision.gameObject;
             }
-            
+            //computer
+            if (collision.CompareTag("computer"))
+            {
+                print("in comp");
+                interactBox.SetActive(true);
+                canOpenLaptop = true;
+            }
+
         }
 
     }
@@ -111,6 +148,31 @@ public class itemInteraction : MonoBehaviour
             canTryDoor = false;
             childOfTargetDoor = null;
         }
+        //computer
+        if (collision.CompareTag("computer"))
+        {
+            print("out comp");
+            canOpenLaptop = false;
+        }
     }
 
+    public void checkPassword()
+    {
+        if (inputText.text.Trim() == code)
+        {
+            print("Password Correct!");
+            inputText.interactable = false; // Disable the input field component
+            passwordText.color = Color.green;
+            passwordText.text = "Code successfully inputted!";
+            inputText.textComponent.color = Color.green;
+            decoded = true;
+
+            //CORRECT SOUND HERE=====================================================
+            //LEAH THIS IS WHERE I MAKE IT CORRECT========================================
+        }
+        else
+        {
+            print("Password Incorrect! Typed: " + inputText.text);
+        }
+    }
 }

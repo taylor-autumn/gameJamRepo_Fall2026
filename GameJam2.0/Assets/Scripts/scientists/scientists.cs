@@ -128,7 +128,7 @@ public class scientists : MonoBehaviour
             if (!atPoint)
             {
                 //only do it once
-                print("AT POINT");
+                //print("AT POINT");
                 atPoint = true;
                 setNextTarget();
             }
