@@ -358,11 +358,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 443
-        y: 156
+        y: 159
         width: 85
-        height: 128
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        height: 129
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -666,11 +666,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 443
-        y: 11
+        y: 12
         width: 85
-        height: 129
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        height: 128
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
