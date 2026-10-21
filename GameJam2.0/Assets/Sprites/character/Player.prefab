@@ -112,7 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   rb: {fileID: 2367847715178669992}
   anim: {fileID: 1194546088917046426}
-  coll: {fileID: 5069937190083321837}
+  coll: {fileID: 5419355603983422229}
+  spriteRenderer: {fileID: 6430644864398608383}
   moveSpeed: 197.9
   horizontalMove: 0
   canMove: 1
@@ -185,7 +186,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1ebe171acb090c6488b10d9d3fe62b94, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -206,7 +207,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1ebe171acb090c6488b10d9d3fe62b94, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -280,8 +281,10 @@ MonoBehaviour:
   childOfTargetDoor: {fileID: 0}
   canOpenLaptop: 0
   compUi: {fileID: 0}
+  passwordText: {fileID: 0}
   inputText: {fileID: 0}
   code: 
+  decoded: 0
   interactBox: {fileID: 1165499646843110027}
 --- !u!1 &1165499646843110027
 GameObject:

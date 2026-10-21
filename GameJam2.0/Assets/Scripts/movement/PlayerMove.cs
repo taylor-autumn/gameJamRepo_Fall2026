@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     [SerializeField] private Collider2D coll;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     //[SerializeField] private CapsuleCollider2D bodyColl;
     //[SerializeField] private SpriteRenderer sr;
 
@@ -138,6 +139,7 @@ public class PlayerControl : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
+        //print(rb.linearVelocity);
         //if (Input.GetKey(KeyCode.R))
         //{
         //    PlayerPrefs.DeleteKey("HighScore");
@@ -165,14 +167,6 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    private void MoveWithPlatform()
-    {
-
-        Vector3 platformDelta = currentPlatform.transform.position - lastPlatformPos;
-        lastPlatformPos = currentPlatform.transform.position;
-        transform.position = transform.position + platformDelta;
-
-    }
 
 
     private void FixedUpdate()
@@ -194,6 +188,25 @@ public class PlayerControl : MonoBehaviour
             faceDirKey = KeyCode.RightArrow;
             oppositeFaceDirKey = KeyCode.LeftArrow;
         }
+
+        MoveWithPlatform();
+
+    }
+
+
+    private void MoveWithPlatform()
+    {
+        if (currentPlatform == null)
+        {
+            return;
+        }
+        onGround = true;
+        anim.SetBool("OnTheGround", true);
+        ableToJump = true;
+        Vector3 platformDelta = currentPlatform.transform.position - lastPlatformPos;
+        lastPlatformPos = currentPlatform.transform.position;
+        transform.position = transform.position + platformDelta;
+
     }
 
     private void Movement()
@@ -226,8 +239,11 @@ public class PlayerControl : MonoBehaviour
 
                 if (faceDirection != 0 && faceDirectionAir != 0)
                 {
-                    transform.localScale = new Vector3(faceDirection, 1, 1);
+                    //transform.localScale = new Vector3(faceDirection, 1, 1);
+                    spriteRenderer.flipX = faceDirection < 0;
+                    
                 }
+
             }
         }
     }
@@ -558,10 +574,15 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (currentPlatform != null)
+        if (collision.gameObject.CompareTag("Platform"))
         {
-            currentPlatform = null;
+            if (currentPlatform != null)
+            {
+                onGround = false;
+                currentPlatform = null;
+            }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -579,11 +600,13 @@ public class PlayerControl : MonoBehaviour
         if (other.CompareTag("Platform"))
         {
             Debug.Log("touch platform");
-            if (currentPlatform = null)
+            if (currentPlatform == null)
             {
                 Debug.Log("Set Platform");
-                lastPlatformPos = other.GetComponent<GameObject>().transform.position;
-                currentPlatform = other.GetComponent<GameObject>();
+                currentPlatform = other.gameObject;
+                lastPlatformPos = other.transform.position;
+
+
             }
             
             MoveWithPlatform();
