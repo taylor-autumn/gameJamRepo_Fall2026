@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WireBox : MonoBehaviour
 {
@@ -8,11 +10,22 @@ public class WireBox : MonoBehaviour
     public GameObject disableWires;
     public Animator ShakeButts;
     public Animator Disapear;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Sprite fixedWire;
+    public Image yellowWire;
+    public GameObject wireBox;
+    public GameObject wireBoxcollider;
+    
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && Input.GetKey(KeyCode.E))
+        { //player press E and opens
+            wireBox.SetActive(true);
+        }
+    }
     public void wrongWire()
     {
         countingIt++;
-        if (countingIt > 3)
+        if (countingIt < 3)
         {
             display.text = "No the obivous one!";
             ShakeButts.SetTrigger("go");
@@ -25,7 +38,8 @@ public class WireBox : MonoBehaviour
     }
     public void correctWire()
     {
-        display.text = "Yay";
+        display.text = "";
+        yellowWire.sprite = fixedWire;
         disableWires.SetActive(true);
         Invoke("delay", 1f);
     }
@@ -38,6 +52,8 @@ public class WireBox : MonoBehaviour
 
     void Bye()
     {
-        
+        wireBoxcollider.GetComponent<Collider2D>().enabled = false;
+        GoalLight.ventCompleted = true;
+        Destroy(wireBox);
     }
 }
