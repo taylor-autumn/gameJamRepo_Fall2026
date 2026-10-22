@@ -2422,8 +2422,8 @@ Transform:
   m_GameObject: {fileID: 507771739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -9.928463}
+  m_LocalScale: {x: 0.99284625, y: 0.99284625, z: 0.99284625}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1305538046}
@@ -4978,8 +4978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DimensionKey
   maskingobject: {fileID: 1305538043}
   minScale: 0
-  maxScale: 8
-  scaleAmount: 0.05
+  maxScale: 26
+  scaleAmount: 0.1625
   ToDisableExplodedColliders:
   - {fileID: 1442984282}
   - {fileID: 1794737424}
@@ -5122,7 +5122,7 @@ SpriteMask:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 399507249770852837, guid: 3fa6ef53913f14784a2b4e513e1f33e2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fa6ef53913f14784a2b4e513e1f33e2, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -5298,6 +5298,18 @@ PrefabInstance:
     - target: {fileID: 5682210482779768012, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201598162560148810, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.79999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201598162560148810, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.79999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201598162560148810, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 7201598162560148810, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: m_LocalPosition.x
