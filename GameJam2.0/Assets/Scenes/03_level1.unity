@@ -16402,15 +16402,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402068530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1552414851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.83, y: -2.53}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402068532
@@ -16500,8 +16500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DimensionKey
   maskingobject: {fileID: 402068530}
   minScale: 0
-  maxScale: 8
-  scaleAmount: 0.05
+  maxScale: 26
+  scaleAmount: 0.1625
   ToDisableExplodedColliders:
   - {fileID: 1592593509}
   ToDisablePreExplosionColliders:
@@ -133395,10 +133395,11 @@ Transform:
   m_GameObject: {fileID: 1552414850}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.901839, y: 6.2131524, z: -12.500001}
+  m_LocalPosition: {x: 0, y: 0, z: -12.500001}
   m_LocalScale: {x: 1.2500001, y: 1.2500001, z: 1.2500001}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 402068531}
   m_Father: {fileID: 1548857068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1552414852
@@ -133488,7 +133489,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.285674
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -137855,7 +137856,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 402068531}
   - {fileID: 1548857067}
   - {fileID: 2139732272}
   - {fileID: 967392836}
