@@ -5,8 +5,8 @@ public class DimensionKey : MonoBehaviour
 {
     public GameObject maskingobject;
     private Vector3 scaleChange;
-    public float minScale = 0.5f;
-    public float maxScale = 2f;
+    public float minScale;
+    public float maxScale;
     public float scaleAmount = 0.01f;
     public List<GameObject> ToDisableExplodedColliders;
     public List<GameObject> ToDisablePreExplosionColliders;

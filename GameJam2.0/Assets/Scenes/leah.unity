@@ -3349,6 +3349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChange
   scenename: meow
+  TransitionAnimator: {fileID: 868206469}
 --- !u!4 &721931390
 Transform:
   m_ObjectHideFlags: 0
