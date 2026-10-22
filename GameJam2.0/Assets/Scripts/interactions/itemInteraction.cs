@@ -52,7 +52,7 @@ public class itemInteraction : MonoBehaviour
             if (thatDoorInfo.isOpen == false)
             {
                 print("opened door: " + door);
-                door.GetComponent<SpriteRenderer>().color = Color.green;
+                door.GetComponent<BoxCollider2D>().enabled = false;
                 thatDoorInfo.isOpen = true;
             }
             else if (thatDoorInfo.isOpen == true)
