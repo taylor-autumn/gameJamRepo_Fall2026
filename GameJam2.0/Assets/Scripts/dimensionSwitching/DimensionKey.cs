@@ -7,7 +7,7 @@ public class DimensionKey : MonoBehaviour
     private Vector3 scaleChange;
     public float minScale;
     public float maxScale;
-    public float scaleAmount = 0.01f;
+    public float scaleAmount;
     public List<GameObject> ToDisableExplodedColliders;
     public List<GameObject> ToDisablePreExplosionColliders;
     private bool Toggle = false;
