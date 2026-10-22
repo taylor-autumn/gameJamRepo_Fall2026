@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/leah.unity
     guid: 64943f7a63715c04599103dc687e042f
-  - enabled: 0
-    path: Assets/Scenes/lolltest.unity
-    guid: 31038fe44d424459e9349b1374dc5fd3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
