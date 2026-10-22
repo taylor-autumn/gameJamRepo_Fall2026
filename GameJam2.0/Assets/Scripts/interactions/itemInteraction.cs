@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.LowLevelPhysics2D.PhysicsLayers;
 using static UnityEngine.Rendering.DebugUI;
@@ -12,6 +13,7 @@ public class itemInteraction : MonoBehaviour
     public GameObject childOfTargetDoor;
 
     [Header("Computer stuff")]
+    public bool notCodeLevel=true;
     public bool canOpenLaptop = false;
     public GameObject compUi;
     public TMP_Text passwordText;
@@ -26,12 +28,22 @@ public class itemInteraction : MonoBehaviour
     void Start()
     {
         interactBox.SetActive(false);
-        compUi.SetActive(false);
+        if (compUi!=null) compUi.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (getSceneName() == "codeLevel" && notCodeLevel)
+        {
+            notCodeLevel = false;
+            compUi = GameObject.Find("codeLevel");
+            if (compUi == null)
+            {
+                Debug.LogError("can't find computer UI");
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.E) && playerStatus.instance.hasKeyCard && canTryDoor)
         {
             Transform door = childOfTargetDoor.transform.parent;
@@ -72,6 +84,11 @@ public class itemInteraction : MonoBehaviour
 
     }
 
+    public string getSceneName()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        return sceneName;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //=================================ITEMS=================================

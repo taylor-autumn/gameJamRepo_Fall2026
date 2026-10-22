@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 390477661968572008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.10207, y: 0.61255, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.10207, y: 0.58, z: 0}
+  m_LocalScale: {x: 0.794277, y: 0.794277, z: 0.794277}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3946924203143595936}
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::itemInteraction
   canTryDoor: 0
   childOfTargetDoor: {fileID: 0}
+  notCodeLevel: 1
   canOpenLaptop: 0
   compUi: {fileID: 0}
   passwordText: {fileID: 0}

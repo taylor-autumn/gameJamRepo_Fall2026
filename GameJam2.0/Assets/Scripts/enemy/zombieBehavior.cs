@@ -53,11 +53,11 @@ public class zombieBehavior : MonoBehaviour
         //set random speed
         if (type == zombieType.autonomous)
         {
-            speed = Random.Range(5, 7);
+            speed = Random.Range(4, 5);
         }
         else
         {
-            speed = Random.Range(3, 6);
+            speed = Random.Range(2, 5);
         }
 
 
