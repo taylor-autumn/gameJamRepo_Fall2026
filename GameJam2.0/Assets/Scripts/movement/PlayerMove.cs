@@ -599,10 +599,10 @@ public class PlayerControl : MonoBehaviour
 
         if (other.CompareTag("Platform"))
         {
-            Debug.Log("touch platform");
+            //Debug.Log("touch platform");
             if (currentPlatform == null)
             {
-                Debug.Log("Set Platform");
+                //Debug.Log("Set Platform");
                 currentPlatform = other.gameObject;
                 lastPlatformPos = other.transform.position;
 
