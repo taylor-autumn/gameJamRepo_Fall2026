@@ -9,9 +9,9 @@ public class GoalLight : MonoBehaviour
         pipeRoom
     }
     public RoomType theroomtype;
-    public static bool codeCompleted = false;
-    public static bool ventCompleted = false;
-    public static bool pipeCompleted = false;
+    public static bool codeCompleted;
+    public static bool ventCompleted;
+    public static bool pipeCompleted;
     public Animator LightIndicator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,17 +26,18 @@ public class GoalLight : MonoBehaviour
         {
             case RoomType.CodeRoom:
             codeCompletedCheck();
-            codeCompleted = true;
             break;
 
             case RoomType.VentRoom:
             ventCompletedCheck();
-            ventCompleted = false;
             break;
 
             case RoomType.pipeRoom:
             pipeCompletedCheck();
-            pipeCompleted = false;
+            break;
+            
+            default:
+            justbegreen();
             break;
         }
     }
@@ -55,5 +56,9 @@ public class GoalLight : MonoBehaviour
     private void pipeCompletedCheck()
     {
         
+    }
+    private void justbegreen()
+    {
+        LightIndicator.SetBool("green", true);
     }
 }
