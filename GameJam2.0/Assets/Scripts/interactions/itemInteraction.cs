@@ -13,7 +13,6 @@ public class itemInteraction : MonoBehaviour
     public GameObject childOfTargetDoor;
 
     [Header("Computer stuff")]
-    public bool notCodeLevel=true;
     public bool canOpenLaptop = false;
     public GameObject compUi;
     public TMP_Text passwordText;
@@ -24,28 +23,38 @@ public class itemInteraction : MonoBehaviour
     [Header("Interact Box")]
     public GameObject interactBox;
 
+    [Header("Player Controller Ref")]
+    public PlayerControl playerControl;
+    public playerStatus playerStatus;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         interactBox.SetActive(false);
         if (compUi!=null) compUi.SetActive(false);
+        playerControl=GetComponent<PlayerControl>();
+        if (playerControl == null)
+        {
+            Debug.LogError("PLAYER CONTROL IS NULL FROM ITEM INTERACTION SCRIPT");
+        }
+        playerStatus = GetComponent<playerStatus>();
+        if (playerStatus == null)
+        {
+            Debug.LogError("PLAYER STATUS IS NULL FROM ITEM INTERACTION SCRIPT");
+        }
+
+        compUi=playerStatus.compUi;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (getSceneName() == "codeLevel" && notCodeLevel)
-        {
-            notCodeLevel = false;
-            compUi = GameObject.Find("codeLevel");
-            if (compUi == null)
-            {
-                Debug.LogError("can't find computer UI");
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.E) && playerStatus.instance.hasKeyCard && canTryDoor)
         {
+
+            //use anim??
+
             Transform door = childOfTargetDoor.transform.parent;
             doorInfo thatDoorInfo = door.GetComponent<doorInfo>();
 
@@ -70,11 +79,13 @@ public class itemInteraction : MonoBehaviour
             print("opening comp");
             compUi.SetActive(true);
             inputText.ActivateInputField();
+            playerControl.StopEveryMove(); //no move
         }
         if (Input.GetKeyDown(KeyCode.Q) && compUi.activeInHierarchy)
         {
             print("Closing comp");
             compUi.SetActive(false);
+            playerControl.DisableStopEveryMove(); //can move again
         }
         if (Input.GetKeyDown(KeyCode.Return) && compUi.activeInHierarchy)
         {
@@ -95,6 +106,7 @@ public class itemInteraction : MonoBehaviour
         //if collides with keycard
         if (collision.CompareTag("keyCard"))
         {
+            //pick up anim??
             Destroy(collision.gameObject);
             print("Picked up keycard");
             playerStatus.instance.hasKeyCard = true;
@@ -103,6 +115,7 @@ public class itemInteraction : MonoBehaviour
         //if collides with screwdriver
         if (collision.CompareTag("screwdriver"))
         {
+            //pick up anim??
             Destroy(collision.gameObject);
             print("Picked up screwedriver");
             playerStatus.instance.hasScrewdriver = true;
@@ -111,6 +124,7 @@ public class itemInteraction : MonoBehaviour
         //if collides with wrench
         if (collision.CompareTag("wrench"))
         {
+            //pick up anim??
             Destroy(collision.gameObject);
             print("Picked up wrench");
             playerStatus.instance.hasWrench = true;
@@ -119,6 +133,7 @@ public class itemInteraction : MonoBehaviour
         //if collides with flashlight
         if (collision.CompareTag("flashlight"))
         {
+            //pick up anim??
             Destroy(collision.gameObject);
             print("Picked up flashlight");
             playerStatus.instance.hasFlashlight = true;
@@ -127,6 +142,7 @@ public class itemInteraction : MonoBehaviour
         //if collides with usb
         if (collision.CompareTag("usb"))
         {
+            //pick up anim??
             Destroy(collision.gameObject);
             print("Picked up usb");
             playerStatus.instance.hasUSB = true;

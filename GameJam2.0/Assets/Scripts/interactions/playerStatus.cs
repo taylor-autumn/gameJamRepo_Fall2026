@@ -19,11 +19,12 @@ public class playerStatus : MonoBehaviour
     public Image wrenchUi;
     public Image flashlightUi;
     public Image usbUi;
+    public GameObject compUi;
 
     private void Awake()
     {
         
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject); //this object should never die
 
     }
 

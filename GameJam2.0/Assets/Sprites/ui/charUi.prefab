@@ -499,7 +499,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1228165069848309877}
-  - component: {fileID: 583001360501333466}
   m_Layer: 5
   m_Name: charUi
   m_TagString: Untagged
@@ -529,28 +528,6 @@ RectTransform:
   m_AnchoredPosition: {x: -610, y: 443}
   m_SizeDelta: {x: 686.02844, y: 167.85803}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &583001360501333466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871864437213565765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e28a4f05af5cfb4c97b4739efba7074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerStatus
-  hasKeyCard: 0
-  hasScrewdriver: 0
-  hasWrench: 0
-  hasFlashlight: 0
-  hasUSB: 0
-  keyCardUi: {fileID: 9032702006176676857}
-  screwdriverUi: {fileID: 3966239788321033189}
-  wrenchUi: {fileID: 6959667349496222271}
-  flashlightUi: {fileID: 8075175342153835043}
-  usbUi: {fileID: 6884654268527639280}
 --- !u!1 &8805465758000989480
 GameObject:
   m_ObjectHideFlags: 0
