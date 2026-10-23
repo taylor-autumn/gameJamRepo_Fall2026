@@ -98,12 +98,14 @@ public class PlayerControl : MonoBehaviour
     private Vector3 lobbyButtonPos;
 
     // Audio
-    [SerializeField] private AudioSource jump;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSFX;
     [SerializeField] private AudioSource dash;
     [SerializeField] private AudioSource die;
     [SerializeField] private AudioSource collect;
     [SerializeField] private AudioSource win;
     [SerializeField] private AudioSource bgm;
+    [SerializeField] private AudioClip switchDimensionSFX;
 
     // Reserved fields (no active references in this script)
     public float velPower;
@@ -115,6 +117,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         //lobbyButtonPos = button.transform.position;
         //button.transform.position += new Vector3(1000, 1000, 1000);
         //highScoreText = highScore.GetComponent<Text>();
@@ -158,6 +161,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            audioSource.PlayOneShot(switchDimensionSFX);
             anim.SetBool("SwitchDimention", true);
 
         }
@@ -325,8 +329,10 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetButton("Jump"))
         {
+
             jumpTimer += Time.deltaTime;
             //rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, jumpForce));
+
         }
         if (Input.GetButton("Jump") && isJump && jumpTimer <= jumpHoldDuration)
         {
@@ -334,7 +340,7 @@ public class PlayerControl : MonoBehaviour
         }
         else if (Input.GetButtonDown("Jump"))
         {
-
+            audioSource.PlayOneShot(jumpSFX);
             if (jumpTimer <= jumpHoldDuration && coyoteTime > 0f && !duringClimbing && ableToJump && onGround)
             {
                 //Debug.Log("Jumping");
@@ -429,7 +435,7 @@ public class PlayerControl : MonoBehaviour
         {
             if ((Input.GetKey(oppositeFaceDirKey) && Input.GetButtonDown("Jump")) || (Input.GetButtonDown("Jump") && !Input.GetKey(KeyCode.Z)))
             {
-                jump.Play();
+                audioSource.PlayOneShot(jumpSFX);
                 duringWallJump = true;
                 wallJumpTime = Time.time + wallJumpDuration;
                 duringClimbing = false;
