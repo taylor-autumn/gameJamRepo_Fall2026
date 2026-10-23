@@ -32129,17 +32129,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3525826667233258029, guid: d4e2d34351f57e849b2a6560a585b4fd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.41
-      objectReference: {fileID: 0}
     - target: {fileID: 8722417974885550663, guid: d4e2d34351f57e849b2a6560a585b4fd, type: 3}
       propertyPath: m_Name
       value: zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216743244101449271, guid: d4e2d34351f57e849b2a6560a585b4fd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

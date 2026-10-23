@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5224378242631244799}
   m_Layer: 0
   m_Name: attackCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 5223903609300823809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.88, y: -0.66098, z: 0}
+  m_LocalPosition: {x: 0.67, y: -0.66098, z: 0}
   m_LocalScale: {x: 5.2245173, y: 7.725148, z: 7.725148}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 6023687391324214620}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.95, y: -0.66098, z: 0}
+  m_LocalPosition: {x: -7.41, y: -0.66098, z: 0}
   m_LocalScale: {x: 5.2245173, y: 7.725148, z: 7.725148}
   m_ConstrainProportionsScale: 0
   m_Children: []

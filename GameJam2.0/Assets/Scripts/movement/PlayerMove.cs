@@ -156,7 +156,20 @@ public class PlayerControl : MonoBehaviour
         //    WallSlide();
         //}
 
-        JumpControl();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            anim.SetBool("SwitchDimention", true);
+
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            anim.SetBool("SwitchDimention", false);
+
+        }
+
+
+
+            JumpControl();
 
         //Climb();
 
@@ -591,7 +604,7 @@ public class PlayerControl : MonoBehaviour
             transform.position = reSpawnPos;
             dieTime += 1;
             //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
-            die.Play();
+            //die.Play();
         }
     }
 
