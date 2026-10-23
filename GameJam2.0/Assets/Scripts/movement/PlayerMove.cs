@@ -586,6 +586,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (isDead)
         {
+            //anim.SetBool("Dead", true);
             //die.Play();
             dieTime += 1;
             //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
