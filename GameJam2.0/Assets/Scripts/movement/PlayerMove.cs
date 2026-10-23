@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
@@ -248,6 +248,22 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    public void StopEveryMove()
+    {
+        Debug.Log($"停止的是：{gameObject.name}", gameObject);
+        canMove = false;
+        horizontalMove = 0;
+        anim.SetFloat("Running", 0f);
+        rb.linearVelocity = new Vector2(0f, 0f);
+    }
+
+    public void DisableStopEveryMove()
+    {
+        canMove = true;
+    }
+
+
+
     private void JumpAnimation()
     {
         anim.SetBool("OnTheGround", false);
@@ -286,6 +302,13 @@ public class PlayerControl : MonoBehaviour
 
     private void JumpControl()
     {
+        if (!canMove)
+        {
+            isJump = false;
+            jumpTimer = 0f;
+            return;
+        }
+
 
         if (Input.GetButton("Jump"))
         {
