@@ -38,7 +38,6 @@ public class itemInteraction : MonoBehaviour
             Debug.LogError("PLAYER CONTROL IS NULL FROM ITEM INTERACTION SCRIPT");
         }
 
-        compUi=playerStatus.compUi;
     }
 
     // Update is called once per frame
