@@ -155,6 +155,24 @@ public class itemInteraction : MonoBehaviour
                 canTryDoor = true;
                 childOfTargetDoor = collision.gameObject;
             }
+            if (collision.CompareTag("screwDoor") && playerStatus.instance.hasScrewdriver)
+            {
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
+            if (collision.CompareTag("flashDoor") && playerStatus.instance.hasFlashlight)
+            {
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
+            if (collision.CompareTag("wrenchDoor") && playerStatus.instance.hasWrench)
+            {
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
             //computer
             if (collision.CompareTag("computer"))
             {
@@ -170,17 +188,18 @@ public class itemInteraction : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //print("left door/area");
-        interactBox.SetActive(false);
-        if (collision.CompareTag("door"))
+        if (collision.CompareTag("door") || collision.CompareTag("screwDoor") || collision.CompareTag("flashDoor") || collision.CompareTag("wrenchDoor"))
         {
             canTryDoor = false;
             childOfTargetDoor = null;
+            interactBox.SetActive(false);
         }
         //computer
         if (collision.CompareTag("computer"))
         {
             print("out comp");
             canOpenLaptop = false;
+            interactBox.SetActive(false);
         }
     }
 

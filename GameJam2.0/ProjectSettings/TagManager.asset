@@ -18,6 +18,9 @@ TagManager:
   - screwdriver
   - area
   - computer
+  - screwDoor
+  - flashDoor
+  - wrenchDoor
   layers:
   - Default
   - TransparentFX
