@@ -126,7 +126,7 @@ MonoBehaviour:
   wrenchUi: {fileID: 2796695812563289449}
   flashlightUi: {fileID: 3912116944372872565}
   usbUi: {fileID: 1860369302218370470}
-  compUi: {fileID: 0}
+  compUi: {fileID: 5225646345294812282}
 --- !u!1 &756620018689525309
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +837,11 @@ PrefabInstance:
       addedObject: {fileID: 2725632663512836944}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 435220c442783984f80332185ee5db09, type: 3}
+--- !u!1 &5225646345294812282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1152939082486160696, guid: 435220c442783984f80332185ee5db09, type: 3}
+  m_PrefabInstance: {fileID: 6378564193429031234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7022439805731585112 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4175260841990206746, guid: 435220c442783984f80332185ee5db09, type: 3}

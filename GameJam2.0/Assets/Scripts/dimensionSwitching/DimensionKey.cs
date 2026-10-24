@@ -32,11 +32,17 @@ public class DimensionKey : MonoBehaviour
             maskingobject.transform.localScale = scale;
             foreach(GameObject blown in ToDisableExplodedColliders)
             {
-                blown.GetComponent<Collider2D>().enabled = true;
+                if (blown != null && blown.TryGetComponent<Collider2D>(out Collider2D collider))
+                {
+                    collider.enabled = true;
+                }
             }
             foreach(GameObject notBlown in ToDisablePreExplosionColliders)
             {
-                notBlown.GetComponent<Collider2D>().enabled = false;
+                if (notBlown != null && notBlown.TryGetComponent<Collider2D>(out Collider2D collider))
+                {
+                    collider.enabled = false;
+                }
             }
         }
         else if(Toggle == true)
@@ -46,11 +52,17 @@ public class DimensionKey : MonoBehaviour
             maskingobject.transform.localScale = scale;
             foreach(GameObject blown in ToDisableExplodedColliders)
             {
-                blown.GetComponent<Collider2D>().enabled = false;
+                if (blown != null && blown.TryGetComponent<Collider2D>(out Collider2D collider))
+                {
+                    collider.enabled = false;
+                }
             }
             foreach(GameObject notBlown in ToDisablePreExplosionColliders)
             {
-                notBlown.GetComponent<Collider2D>().enabled = true;
+                if (notBlown != null && notBlown.TryGetComponent<Collider2D>(out Collider2D collider))
+                {
+                    collider.enabled = true;
+                }
             }
         }
     }

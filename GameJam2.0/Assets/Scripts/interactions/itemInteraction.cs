@@ -37,11 +37,6 @@ public class itemInteraction : MonoBehaviour
         {
             Debug.LogError("PLAYER CONTROL IS NULL FROM ITEM INTERACTION SCRIPT");
         }
-        playerStatus = GetComponent<playerStatus>();
-        if (playerStatus == null)
-        {
-            Debug.LogError("PLAYER STATUS IS NULL FROM ITEM INTERACTION SCRIPT");
-        }
 
         compUi=playerStatus.compUi;
     }
