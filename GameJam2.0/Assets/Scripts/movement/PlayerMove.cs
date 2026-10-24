@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -87,6 +88,8 @@ public class PlayerControl : MonoBehaviour
     // Respawn
     [Header("Respawn")]
     [UnityEngine.Serialization.FormerlySerializedAs("Die")]
+    [SerializeField] private float deathDelay = 0.8f;
+    private bool isRespawning;
     public bool isDead;
     public Vector3 reSpawnPos;
     public int dieTime = 0;
@@ -584,36 +587,43 @@ public class PlayerControl : MonoBehaviour
 
     private void DieDetect()
     {
-        if (isDead)
-        {
-            //anim.SetBool("Dead", true);
-            //die.Play();
-            dieTime += 1;
-            //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
-            isDead = false;
-            transform.position = reSpawnPos;
+        //is playing dead animation
+        if (isRespawning)
             return;
-        }
 
-        //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
-        //die.Play();
-
-        //if (coll.IsTouchingLayers(spike)) //|| bodyColl.IsTouchingLayers(spike))
-        //{
-        //    transform.position = reSpawnPos;
-        //    dieTime += 1;
-        //    dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
-        //    die.Play();
-        //}
-
+        // fall off the map
         if (transform.position.y <= -10f)
         {
-            transform.position = reSpawnPos;
-            dieTime += 1;
-            //dieTimeText.GetComponent<Text>().text = "Time Dead: " + dieTime;
-            //die.Play();
+            isDead = true;
+        }
+
+        // other dead
+        if (isDead)
+        {
+            StartCoroutine(DeathAndRespawn());
         }
     }
+
+    private IEnumerator DeathAndRespawn()
+    {
+        isRespawning = true;
+
+        StopEveryMove();
+        currentPlatform = null;
+        anim.SetBool("Dead", true);
+        dieTime++;
+
+        yield return new WaitForSeconds(deathDelay);
+
+        anim.SetBool("Dead", false);
+        transform.position = reSpawnPos;
+        rb.linearVelocity = Vector2.zero;
+
+        isDead = false;
+        canMove = true;
+        isRespawning = false;
+    }
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -663,7 +673,7 @@ public class PlayerControl : MonoBehaviour
 
         //Check collide with Enemy
 
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !isRespawning)
         {
             isDead = true;
             DieDetect();
