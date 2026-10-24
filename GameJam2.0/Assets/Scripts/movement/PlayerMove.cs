@@ -592,7 +592,7 @@ public class PlayerControl : MonoBehaviour
             return;
 
         // fall off the map
-        if (transform.position.y <= -10f)
+        if (transform.position.y <= -6f)
         {
             isDead = true;
         }
