@@ -9,13 +9,12 @@ public class SceneChange : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            TransitionAnimator.SetTrigger("go");
-            Invoke("quickDelay", 1.4f);
+            SceneManager.LoadScene(scenename);
         }
     }
 
     void quickDelay()
     {
-        SceneManager.LoadScene(scenename);
+
     }
 }
