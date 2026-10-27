@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &11453495 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7495379157487724429, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
+  m_PrefabInstance: {fileID: 1548857067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &33610081
 GameObject:
   m_ObjectHideFlags: 0
@@ -32231,6 +32236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue System Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6082613457418866944, guid: 6063ab566ff4aac418094cfe2e78d18b, type: 3}
+      propertyPath: picture
+      value: 
+      objectReference: {fileID: 584570975}
     - target: {fileID: 6496744191020112977, guid: 6063ab566ff4aac418094cfe2e78d18b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -32444,10 +32453,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.5924816, y: 21.063301}
   m_EdgeRadius: 0
+--- !u!212 &584570975 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7726833294152433650, guid: 693b583baeff1a348895495b6e1e60b9, type: 3}
+  m_PrefabInstance: {fileID: 1982544542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &634031624 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8587360458933049670, guid: d4e2d34351f57e849b2a6560a585b4fd, type: 3}
   m_PrefabInstance: {fileID: 486958947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &659393987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1803600248387535891, guid: 93754975a546a794eab8269fa9abd2e7, type: 3}
+  m_PrefabInstance: {fileID: 1987868550}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &749896497
 GameObject:
@@ -134979,6 +134998,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1342615196}
     - target: {fileID: 5682210482779768012, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
+      propertyPath: correctSound
+      value: 
+      objectReference: {fileID: 11453495}
+    - target: {fileID: 5682210482779768012, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: playerStatus
       value: 
       objectReference: {fileID: 1703174499}
@@ -136756,6 +136779,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2818028471714429348, guid: 693b583baeff1a348895495b6e1e60b9, type: 3}
+      propertyPath: gameplayUI
+      value: 
+      objectReference: {fileID: 659393987}
+    - target: {fileID: 2818028471714429348, guid: 693b583baeff1a348895495b6e1e60b9, type: 3}
+      propertyPath: dialogueRunner
+      value: 
+      objectReference: {fileID: 1616024871}
     - target: {fileID: 3755603555051740197, guid: 693b583baeff1a348895495b6e1e60b9, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.94000006
@@ -136887,6 +136918,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2858189802952183978, guid: 93754975a546a794eab8269fa9abd2e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225646345294812282, guid: 93754975a546a794eab8269fa9abd2e7, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

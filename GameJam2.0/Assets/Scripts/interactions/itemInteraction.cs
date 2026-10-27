@@ -1,9 +1,5 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using static UnityEngine.LowLevelPhysics2D.PhysicsLayers;
-using static UnityEngine.Rendering.DebugUI;
 
 public class itemInteraction : MonoBehaviour
 {
@@ -17,7 +13,6 @@ public class itemInteraction : MonoBehaviour
 
     [Header("Player Controller Ref")]
     public PlayerControl playerControl;
-    public playerStatus playerStatus;
 
     [Header("Audio Sources")]
     public AudioSource correctSound;
@@ -30,8 +25,8 @@ public class itemInteraction : MonoBehaviour
     void Start()
     {
         interactBox.SetActive(false);
-        if (playerStatus.instance.compUi!=null) playerStatus.instance.compUi.SetActive(false);
-        playerControl=GetComponent<PlayerControl>();
+        if (playerStatus.instance.compUi == null) Debug.LogError("Comp UI is null");
+        playerControl = GetComponent<PlayerControl>();
         if (playerControl == null)
         {
             Debug.LogError("PLAYER CONTROL IS NULL FROM ITEM INTERACTION SCRIPT");

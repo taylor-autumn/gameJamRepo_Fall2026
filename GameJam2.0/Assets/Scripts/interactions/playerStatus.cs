@@ -20,7 +20,6 @@ public class playerStatus : MonoBehaviour
     public Image wrenchUi;
     public Image flashlightUi;
     public Image usbUi;
-    public GameObject compUi;
 
     [Header("Level Bools")]
     public bool completedWrenchLevel = false;
@@ -29,6 +28,7 @@ public class playerStatus : MonoBehaviour
     public bool completedUSBLevel = false;
 
     [Header("Comp Ui Stuff")]
+    public GameObject compUi;
     public TMP_Text passwordText;
     public TMP_InputField inputText;
     public string code;
@@ -38,11 +38,6 @@ public class playerStatus : MonoBehaviour
         
         DontDestroyOnLoad(gameObject); //this object should never die
 
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
         //singleton reference
         if (instance != null && instance != this)
         {
@@ -51,6 +46,12 @@ public class playerStatus : MonoBehaviour
         }
         instance = this;
 
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
         //bools initialize
         hasKeyCard = false;
         hasScrewdriver = false;
