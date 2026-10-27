@@ -1,43 +1,55 @@
 ﻿title: C1S1
 ---
-<<C1S1_ShowPicture>>
+<<showPicture 0>>
 I remember it like it was yesterday. 
 Honestly, I can’t tell the difference anymore. 
 Who could've guessed EvilCo was up to no good. 
 There were always rumors but at the end of the day, their specialty was innovative sciences with their goals set on bettering the world.
-<<C1S1_HidePicture>>
-===
 
-title: C1S2
----
+<<nextOne>>
+
+//title: C1S2
 I didn’t want to believe it.
 I’d give my all to EvilCo and they’d give their all to me, or so I thought. 
 Curiosity got the better of me and I discovered all the rumors were true. 
 Inhumane experiments, human testing, dangerous environmental impacts, the whole nine.
-===
 
-title: C1S3
----
+<<nextOne>>
+
+
+//C1S3
+I did my best to speak out against the less savory aspect of the company, 
+not realizing what would come of it. 
+There was a particularly rowdy protest centered around a leaked experiment file, 
+Quantum chronological displacement. 
+We knew it could only be trouble. 
+We tried our best to stop it but it was too late.
+
+<<nextOne>>
+
+
+//C1S4
 There was a massive explosion. 
 It not only covered the entire town in debris and hazardous materials, 
 but it also disrupted the space time continuum. 
 Large jagged time crystals sprouted across town corrupting the minds of anyone who got close. 
 I’m not sure what EvilCo did to me. But for some reason I was different.
-===
 
-title: C1S5
----
+<<nextOne>>
+
+//C1S5
 I was gifted this ability for a reason
-===
 
-title: C1S6
----
+<<nextOne>>
+
+//C1S6
 I have to fix this.
-===
 
-title: C1S6b
----
+<<nextOne>>
+
+//C1S7
 I’m the only one who can.
+<<hidePicture>>
 ===
 
 
