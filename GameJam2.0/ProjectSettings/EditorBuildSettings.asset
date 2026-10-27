@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/practiceScenes/leah.unity
     guid: 64943f7a63715c04599103dc687e042f
   - enabled: 1
-    path: Assets/Scenes/03_level1.unity
+    path: Assets/Scenes/02_level1.unity
     guid: 96179d676300c524fa0a8ff602d74828
   - enabled: 1
-    path: Assets/Scenes/05_level2.unity
+    path: Assets/Scenes/03_level2.unity
     guid: fee817d33a01f5f45a7245a1b0b4c7ef
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
