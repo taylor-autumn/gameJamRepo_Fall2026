@@ -6,17 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/practiceScenes/taylor.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/practiceScenes/leah.unity
-    guid: 64943f7a63715c04599103dc687e042f
+    path: Assets/Scenes/01_menu.unity
+    guid: ea664422f265c5b4880338644f714184
   - enabled: 1
     path: Assets/Scenes/02_level1.unity
     guid: 96179d676300c524fa0a8ff602d74828
   - enabled: 1
     path: Assets/Scenes/03_level2.unity
     guid: fee817d33a01f5f45a7245a1b0b4c7ef
+  - enabled: 1
+    path: Assets/Scenes/04_ReactorRoom.unity
+    guid: 441bea85509217449a14e9bc70186a97
+  - enabled: 1
+    path: Assets/Scenes/05_ScrewdriverLevel.unity
+    guid: 66eac9787f11ced44aeb4732c14c4c78
+  - enabled: 1
+    path: Assets/Scenes/06_WrenchLevel.unity
+    guid: 269b6a28c9a15374880d69490d954cb2
+  - enabled: 1
+    path: Assets/Scenes/07_CodeLevel.unity
+    guid: dc700db5601b04c42a87d388bb994247
+  - enabled: 1
+    path: Assets/Scenes/08_USBLevel.unity
+    guid: 5a5d5443a6ee86742a289f84e3490d5e
+  - enabled: 1
+    path: Assets/Scenes/09_credits.unity
+    guid: 2a092a16e662da84a81832a50543006c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
