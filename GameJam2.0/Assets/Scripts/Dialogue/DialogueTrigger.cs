@@ -1,100 +1,72 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Yarn.Unity;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueRunner dialogueRunner;
-    [SerializeField] private string nodeName;
-    [SerializeField] private GameObject picture;
-    private bool hasPlayed = false;
-    private bool pictureShowing;
-    private PlayerControl playerControl;
+    [SerializeField] private string nodeName = "C1S1";
 
-    private string showCommandName;
-    private string hideCommandName;
+    private PlayerControl player;
+    private bool hasPlayed;
+    private bool ownsDialogue;
+    [SerializeField] private GameObject gameplayUI;
+    private bool uiWasActive;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
+        PlayerControl detectedPlayer =
+            other.GetComponentInParent<PlayerControl>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void Awake()
-    {
-        picture.SetActive(false);
-
-        showCommandName = nodeName + "_ShowPicture";
-        hideCommandName = nodeName + "_HidePicture";
-
-        dialogueRunner.AddCommandHandler(showCommandName, ShowPicture);
-        dialogueRunner.AddCommandHandler(hideCommandName, HidePicture);
-        hasPlayed = false;
-        pictureShowing = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        print("try trigger dialogue");
-        if (hasPlayed)
-        {
+        if (detectedPlayer == null)
             return;
-        }
-        
-        if (!collision.CompareTag("Player"))
-        {
-            print("not player");
+
+        if (hasPlayed || dialogueRunner == null)
             return;
-        }
 
-        playerControl = collision.GetComponentInParent<PlayerControl>();
-
-        if (playerControl == null)
-        {
+        if (dialogueRunner.IsDialogueRunning)
             return;
-        }
 
-        print("trigger dialogue");
-        dialogueRunner.StartDialogue(nodeName);
+        // 先保存玩家引用
+        player = detectedPlayer;
         hasPlayed = true;
+        ownsDialogue = true;
+
+        // 开始对白前，先绑定结束事件
+        dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
+
+        if (gameplayUI != null)
+        {
+            uiWasActive = gameplayUI.activeSelf;
+            gameplayUI.SetActive(false);
+        }
+
+        player.StopEveryMove();
+        dialogueRunner.StartDialogue(nodeName);
     }
 
-    private void ShowPicture()
+    private void OnDialogueComplete()
     {
+        if (!ownsDialogue)
+            return;
 
-        picture.SetActive(true);
-        pictureShowing = true;
-        playerControl.StopEveryMove();
+        ownsDialogue = false;
 
-        //if (playerControl != null && !pictureS
+        if (gameplayUI != null)
+            gameplayUI.SetActive(uiWasActive);
 
-    }
+        if (player != null)
+            player.DisableStopEveryMove();
 
-    private void HidePicture()
-    {
-
-
-        picture.SetActive(false);
-        pictureShowing = false;
-        playerControl.DisableStopEveryMove();
-
+        if (dialogueRunner != null)
+            dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueComplete);
     }
 
     private void OnDestroy()
     {
-        HidePicture();
-
         if (dialogueRunner != null)
-        {
-            dialogueRunner.RemoveCommandHandler(showCommandName);
-            dialogueRunner.RemoveCommandHandler(hideCommandName);
-        }
+            dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueComplete);
+
+        if (ownsDialogue && player != null)
+            player.DisableStopEveryMove();
     }
-
-
 }
