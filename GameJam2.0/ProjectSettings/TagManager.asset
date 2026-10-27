@@ -21,6 +21,10 @@ TagManager:
   - screwDoor
   - flashDoor
   - wrenchDoor
+  - leaveFlashDoor
+  - leaveWrenchDoor
+  - leaveScrewDoor
+  - leaveUSBDoor
   layers:
   - Default
   - TransparentFX

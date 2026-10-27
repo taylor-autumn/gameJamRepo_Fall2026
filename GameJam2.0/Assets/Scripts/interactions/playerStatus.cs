@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,17 @@ public class playerStatus : MonoBehaviour
     public Image flashlightUi;
     public Image usbUi;
     public GameObject compUi;
+
+    [Header("Level Bools")]
+    public bool completedWrenchLevel = false;
+    public bool completedScrewLevel = false;
+    public bool completedFlashlightLevel = false;
+    public bool completedUSBLevel = false;
+
+    [Header("Comp Ui Stuff")]
+    public TMP_Text passwordText;
+    public TMP_InputField inputText;
+    public string code;
 
     private void Awake()
     {
