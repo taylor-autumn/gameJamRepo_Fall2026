@@ -127,6 +127,13 @@ MonoBehaviour:
   flashlightUi: {fileID: 3912116944372872565}
   usbUi: {fileID: 1860369302218370470}
   compUi: {fileID: 5225646345294812282}
+  completedWrenchLevel: 0
+  completedScrewLevel: 0
+  completedFlashlightLevel: 0
+  completedUSBLevel: 0
+  passwordText: {fileID: 8567606055518941185}
+  inputText: {fileID: 8449036733938878661}
+  code: 102096032107
 --- !u!1 &756620018689525309
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,3 +854,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4175260841990206746, guid: 435220c442783984f80332185ee5db09, type: 3}
   m_PrefabInstance: {fileID: 6378564193429031234}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8449036733938878661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3297818498804892039, guid: 435220c442783984f80332185ee5db09, type: 3}
+  m_PrefabInstance: {fileID: 6378564193429031234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
+--- !u!114 &8567606055518941185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3342645119884736835, guid: 435220c442783984f80332185ee5db09, type: 3}
+  m_PrefabInstance: {fileID: 6378564193429031234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI

@@ -12,14 +12,6 @@ public class itemInteraction : MonoBehaviour
     public bool canTryDoor = false;
     public GameObject childOfTargetDoor;
 
-    [Header("Computer stuff")]
-    public bool canOpenLaptop = false;
-    public GameObject compUi;
-    public TMP_Text passwordText;
-    public TMP_InputField inputText;
-    public string code;
-    public bool decoded = false;
-
     [Header("Interact Box")]
     public GameObject interactBox;
 
@@ -27,11 +19,18 @@ public class itemInteraction : MonoBehaviour
     public PlayerControl playerControl;
     public playerStatus playerStatus;
 
+    [Header("Audio Sources")]
+    public AudioSource correctSound;
+
+    [Header("Computer Stuff")]
+    public bool canOpenLaptop = false;
+    public bool decoded = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         interactBox.SetActive(false);
-        if (compUi!=null) compUi.SetActive(false);
+        if (playerStatus.instance.compUi!=null) playerStatus.instance.compUi.SetActive(false);
         playerControl=GetComponent<PlayerControl>();
         if (playerControl == null)
         {
@@ -71,17 +70,17 @@ public class itemInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && canOpenLaptop)
         {
             print("opening comp");
-            compUi.SetActive(true);
-            inputText.ActivateInputField();
+            playerStatus.instance.compUi.SetActive(true);
+            playerStatus.instance.inputText.ActivateInputField();
             playerControl.StopEveryMove(); //no move
         }
-        if (Input.GetKeyDown(KeyCode.Q) && compUi.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Q) && playerStatus.instance.compUi.activeInHierarchy)
         {
             print("Closing comp");
-            compUi.SetActive(false);
+            playerStatus.instance.compUi.SetActive(false);
             playerControl.DisableStopEveryMove(); //can move again
         }
-        if (Input.GetKeyDown(KeyCode.Return) && compUi.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Return) && playerStatus.instance.compUi.activeInHierarchy)
         {
             print("inputting password");
             checkPassword();
@@ -147,31 +146,6 @@ public class itemInteraction : MonoBehaviour
         //if in door area
         if (collision.CompareTag("door") || collision.CompareTag("area") || collision.CompareTag("computer"))
         {
-            //print("In door/area");
-            if (collision.CompareTag("door") && playerStatus.instance.hasKeyCard)
-            {
-                interactBox.SetActive(true);
-                canTryDoor = true;
-                childOfTargetDoor = collision.gameObject;
-            }
-            if (collision.CompareTag("screwDoor") && playerStatus.instance.hasScrewdriver)
-            {
-                interactBox.SetActive(true);
-                canTryDoor = true;
-                childOfTargetDoor = collision.gameObject;
-            }
-            if (collision.CompareTag("flashDoor") && playerStatus.instance.hasFlashlight)
-            {
-                interactBox.SetActive(true);
-                canTryDoor = true;
-                childOfTargetDoor = collision.gameObject;
-            }
-            if (collision.CompareTag("wrenchDoor") && playerStatus.instance.hasWrench)
-            {
-                interactBox.SetActive(true);
-                canTryDoor = true;
-                childOfTargetDoor = collision.gameObject;
-            }
             //computer
             if (collision.CompareTag("computer"))
             {
@@ -179,15 +153,81 @@ public class itemInteraction : MonoBehaviour
                 interactBox.SetActive(true);
                 canOpenLaptop = true;
             }
+            if (playerStatus.instance.hasKeyCard)
+            {
+                //print("In door/area");
+                if (collision.CompareTag("door"))
+                {
+                    interactBox.SetActive(true);
+                    canTryDoor = true;
+                    childOfTargetDoor = collision.gameObject;
+                }
+                //open screwdriver door
+                if (collision.CompareTag("screwDoor") && playerStatus.instance.hasScrewdriver)
+                {
+                    interactBox.SetActive(true);
+                    canTryDoor = true;
+                    childOfTargetDoor = collision.gameObject;
+                }
+                //open flashlight level door
+                if (collision.CompareTag("flashDoor") && playerStatus.instance.hasFlashlight)
+                {
+                    interactBox.SetActive(true);
+                    canTryDoor = true;
+                    childOfTargetDoor = collision.gameObject;
+                }
+                //open wrench level door
+                if (collision.CompareTag("wrenchDoor") && playerStatus.instance.hasWrench)
+                {
+                    interactBox.SetActive(true);
+                    canTryDoor = true;
+                    childOfTargetDoor = collision.gameObject;
+                }
+                //leave the wrench boss level
+                if (collision.CompareTag("leaveWrenchDoor") && playerStatus.instance.completedWrenchLevel)
+                {
+                    interactBox.SetActive(true);
+                    canTryDoor = true;
+                    childOfTargetDoor = collision.gameObject;
+                }
 
+            }
+            
+            
+            
+            
+            
+            //leave the screwdriver boss level
+            if (collision.CompareTag("leaveScrewDoor") && playerStatus.instance.completedScrewLevel)
+            {
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
+            //leave flashlight boss level
+            if (collision.CompareTag("leaveFlashDoor") && playerStatus.instance.completedFlashlightLevel)
+            {
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
+            //leave flashlight boss level
+            if (collision.CompareTag("leaveUSBDoor") && playerStatus.instance.completedUSBLevel)
+            {
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         //print("left door/area");
-        if (collision.CompareTag("door") || collision.CompareTag("screwDoor") || collision.CompareTag("flashDoor") || collision.CompareTag("wrenchDoor"))
+        if (collision.CompareTag("door") || collision.CompareTag("screwDoor") ||
+            collision.CompareTag("flashDoor") || collision.CompareTag("wrenchDoor") ||
+            collision.CompareTag("leaveWrenchDoor") || collision.CompareTag("leaveScrewDoor") ||
+            collision.CompareTag("leaveUSBDoor") || collision.CompareTag("leaveFlashDoor"))
         {
             canTryDoor = false;
             childOfTargetDoor = null;
@@ -204,21 +244,23 @@ public class itemInteraction : MonoBehaviour
 
     public void checkPassword()
     {
-        if (inputText.text.Trim() == code)
+        if (playerStatus.instance.inputText.text.Trim() == playerStatus.instance.code)
         {
             print("Password Correct!");
-            inputText.interactable = false; // Disable the input field component
-            passwordText.color = Color.green;
-            passwordText.text = "Code successfully inputted!";
-            inputText.textComponent.color = Color.green;
+            playerStatus.instance.inputText.interactable = false; // Disable the input field component
+            playerStatus.instance.passwordText.color = Color.green;
+            playerStatus.instance.passwordText.text = "Code successfully inputted!";
+            playerStatus.instance.inputText.textComponent.color = Color.green;
             decoded = true;
+            if (correctSound!=null) correctSound.Play();
+            playerStatus.instance.completedFlashlightLevel = true;
 
             //CORRECT SOUND HERE=====================================================
             //LEAH THIS IS WHERE I MAKE IT CORRECT========================================
         }
         else
         {
-            print("Password Incorrect! Typed: " + inputText.text);
+            print("Password Incorrect! Typed: " + playerStatus.instance.inputText.text);
         }
     }
 }
