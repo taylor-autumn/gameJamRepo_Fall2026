@@ -16,6 +16,7 @@ public class itemInteraction : MonoBehaviour
 
     [Header("Audio Sources")]
     public AudioSource correctSound;
+    public AudioClip MetalDoorSound;
 
     [Header("Computer Stuff")]
     public bool canOpenLaptop = false;
@@ -41,8 +42,6 @@ public class itemInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && playerStatus.instance.hasKeyCard && canTryDoor)
         {
 
-            //use anim??
-
             Transform door = childOfTargetDoor.transform.parent;
             doorInfo thatDoorInfo = door.GetComponent<doorInfo>();
 
@@ -51,6 +50,7 @@ public class itemInteraction : MonoBehaviour
                 print("opened door: " + door);
                 door.GetComponent<BoxCollider2D>().enabled = false;
                 thatDoorInfo.isOpen = true;
+                correctSound.PlayOneShot(MetalDoorSound);
             }
             else if (thatDoorInfo.isOpen == true)
             {
@@ -150,6 +150,7 @@ public class itemInteraction : MonoBehaviour
             }
             if (playerStatus.instance.hasKeyCard)
             {
+
                 //print("In door/area");
                 if (collision.CompareTag("door"))
                 {
@@ -249,6 +250,7 @@ public class itemInteraction : MonoBehaviour
             decoded = true;
             if (correctSound!=null) correctSound.Play();
             playerStatus.instance.completedFlashlightLevel = true;
+            GoalLight.codeCompleted = true;
 
             //CORRECT SOUND HERE=====================================================
             //LEAH THIS IS WHERE I MAKE IT CORRECT========================================

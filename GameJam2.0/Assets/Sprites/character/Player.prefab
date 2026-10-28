@@ -240,6 +240,7 @@ MonoBehaviour:
   interactBox: {fileID: 1165499646843110027}
   playerControl: {fileID: 0}
   correctSound: {fileID: 0}
+  MetalDoorSound: {fileID: 8300000, guid: 7a4a414fcd28c447b9e6a42a0a0a3e6b, type: 3}
   canOpenLaptop: 0
   decoded: 0
 --- !u!82 &7495379157487724429
@@ -878,7 +879,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -911,7 +912,6 @@ GameObject:
   - component: {fileID: 3273486471489568837}
   - component: {fileID: 1852023636130421618}
   - component: {fileID: 41720555609058336}
-  - component: {fileID: 6120995937347567992}
   m_Layer: 0
   m_Name: Dimension mask
   m_TagString: Untagged
@@ -1099,17 +1099,3 @@ SpriteMask:
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
   m_MaskSource: 0
---- !u!114 &6120995937347567992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6982778622418728877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5ebd1aa650e64a90ac1e79b678aaac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::tempVentPipe
-  hasScrewdriver: 1
-  hasWrench: 1
