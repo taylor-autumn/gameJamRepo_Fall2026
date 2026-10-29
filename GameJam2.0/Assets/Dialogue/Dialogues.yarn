@@ -82,12 +82,13 @@ Scientist B: We’ve been trying but, we can’t contact the termination divisio
 Scientist B: and they’re the only ones with the code to the terminal and the shutdown program.
 Scientist A: Shit, this is NOT good. We’ve got to get out of here. Tell the site to evacuate!
 
-
-//title: C3S4b
 <<nextOne>>
 That's it, that's what I need! I can fix this!
-
 <<hidePicture>>
+===
+
+title: GoToEnding
+---
 <<teleportToGE1>>
 <<stop>>
 ===
