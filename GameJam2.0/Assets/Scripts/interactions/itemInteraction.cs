@@ -48,8 +48,9 @@ public class itemInteraction : MonoBehaviour
             if (thatDoorInfo.isOpen == false)
             {
                 print("opened door: " + door);
-                door.GetComponent<BoxCollider2D>().enabled = false;
+                Destroy(door.GetComponent<BoxCollider2D>());
                 thatDoorInfo.isOpen = true;
+                print("DID THIS");
                 correctSound.PlayOneShot(MetalDoorSound);
             }
             else if (thatDoorInfo.isOpen == true)
@@ -138,61 +139,52 @@ public class itemInteraction : MonoBehaviour
         }
 
         //=================================collide with areas stuff==============================
-        //if in door area
-        if (collision.CompareTag("door") || collision.CompareTag("area") || collision.CompareTag("computer"))
+        //computer
+        if (collision.CompareTag("computer"))
         {
-            //computer
-            if (collision.CompareTag("computer"))
+            print("in comp");
+            interactBox.SetActive(true);
+            canOpenLaptop = true;
+        }
+        if (playerStatus.instance.hasKeyCard)
+        {
+
+            //print("In door/area");
+            if (collision.CompareTag("door"))
             {
-                print("in comp");
                 interactBox.SetActive(true);
-                canOpenLaptop = true;
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
             }
-            if (playerStatus.instance.hasKeyCard)
+            //open screwdriver door
+            if (collision.CompareTag("screwDoor") && playerStatus.instance.hasScrewdriver)
             {
-
-                //print("In door/area");
-                if (collision.CompareTag("door"))
-                {
-                    interactBox.SetActive(true);
-                    canTryDoor = true;
-                    childOfTargetDoor = collision.gameObject;
-                }
-                //open screwdriver door
-                if (collision.CompareTag("screwDoor") && playerStatus.instance.hasScrewdriver)
-                {
-                    interactBox.SetActive(true);
-                    canTryDoor = true;
-                    childOfTargetDoor = collision.gameObject;
-                }
-                //open flashlight level door
-                if (collision.CompareTag("flashDoor") && playerStatus.instance.hasFlashlight)
-                {
-                    interactBox.SetActive(true);
-                    canTryDoor = true;
-                    childOfTargetDoor = collision.gameObject;
-                }
-                //open wrench level door
-                if (collision.CompareTag("wrenchDoor") && playerStatus.instance.hasWrench)
-                {
-                    interactBox.SetActive(true);
-                    canTryDoor = true;
-                    childOfTargetDoor = collision.gameObject;
-                }
-                //leave the wrench boss level
-                if (collision.CompareTag("leaveWrenchDoor") && playerStatus.instance.completedWrenchLevel)
-                {
-                    interactBox.SetActive(true);
-                    canTryDoor = true;
-                    childOfTargetDoor = collision.gameObject;
-                }
-
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
             }
-            
-            
-            
-            
-            
+            //open flashlight level door
+            if (collision.CompareTag("flashDoor") && playerStatus.instance.hasFlashlight)
+            {
+                print("called");
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
+            //open wrench level door
+            if (collision.CompareTag("wrenchDoor") && playerStatus.instance.hasWrench)
+            {
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
+            //leave the wrench boss level
+            if (collision.CompareTag("leaveWrenchDoor") && playerStatus.instance.completedWrenchLevel)
+            {
+                interactBox.SetActive(true);
+                canTryDoor = true;
+                childOfTargetDoor = collision.gameObject;
+            }
             //leave the screwdriver boss level
             if (collision.CompareTag("leaveScrewDoor") && playerStatus.instance.completedScrewLevel)
             {
@@ -207,14 +199,16 @@ public class itemInteraction : MonoBehaviour
                 canTryDoor = true;
                 childOfTargetDoor = collision.gameObject;
             }
-            //leave flashlight boss level
+            //leave usb boss level
             if (collision.CompareTag("leaveUSBDoor") && playerStatus.instance.completedUSBLevel)
             {
                 interactBox.SetActive(true);
                 canTryDoor = true;
                 childOfTargetDoor = collision.gameObject;
             }
+
         }
+            
     }
 
     private void OnTriggerExit2D(Collider2D collision)

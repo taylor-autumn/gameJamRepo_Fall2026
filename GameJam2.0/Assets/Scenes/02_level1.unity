@@ -32323,11 +32323,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 39764268033825236, guid: 81f1a763508956247915a04bf72fb506, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.7
+      value: 39.11
       objectReference: {fileID: 0}
     - target: {fileID: 39764268033825236, guid: 81f1a763508956247915a04bf72fb506, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14
+      value: 3.16
       objectReference: {fileID: 0}
     - target: {fileID: 39764268033825236, guid: 81f1a763508956247915a04bf72fb506, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32866,6 +32866,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3525826667233258029, guid: d4e2d34351f57e849b2a6560a585b4fd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.42
+      objectReference: {fileID: 0}
     - target: {fileID: 5327243346389807435, guid: d4e2d34351f57e849b2a6560a585b4fd, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
@@ -32877,6 +32881,10 @@ PrefabInstance:
     - target: {fileID: 8722417974885550663, guid: d4e2d34351f57e849b2a6560a585b4fd, type: 3}
       propertyPath: m_Name
       value: zombie1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216743244101449271, guid: d4e2d34351f57e849b2a6560a585b4fd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

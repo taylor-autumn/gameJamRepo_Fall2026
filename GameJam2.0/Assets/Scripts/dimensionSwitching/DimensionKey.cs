@@ -11,6 +11,7 @@ public class DimensionKey : MonoBehaviour
     public List<GameObject> ToDisableExplodedColliders;
     public List<GameObject> ToDisablePreExplosionColliders;
     private bool Toggle = false;
+    public bool stopMaskShift = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +21,10 @@ public class DimensionKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (stopMaskShift == true)
+        {
+            Toggle = true;
+        }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Toggle = !Toggle;

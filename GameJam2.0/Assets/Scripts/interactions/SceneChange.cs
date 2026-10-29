@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,12 +10,13 @@ public class SceneChange : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(scenename);
+            TransitionAnimator.SetTrigger("go");
+            Invoke("quickDelay", 1f);
         }
     }
 
     void quickDelay()
     {
-
+        SceneManager.LoadScene(scenename);
     }
 }
