@@ -52,6 +52,7 @@ public class GoalLight : MonoBehaviour
     {
         if (codeCompleted == true)
         {
+            playerStatus.instance.completedFlashlightLevel = true;
             LightIndicator.SetBool("green", true);
         }
     }
@@ -59,6 +60,7 @@ public class GoalLight : MonoBehaviour
     {
         if (ventCompleted == true)
         {
+            playerStatus.instance.completedScrewLevel = true;
             LightIndicator.SetBool("green", true);
         }
     }
@@ -66,6 +68,7 @@ public class GoalLight : MonoBehaviour
     {
         if (usbCompleted == true)
         {
+            playerStatus.instance.completedUSBLevel = true;
             LightIndicator.SetBool("green", true);
         }
     }
@@ -73,6 +76,7 @@ public class GoalLight : MonoBehaviour
     {
         if (pipeCompleted == true)
         {
+            playerStatus.instance.completedWrenchLevel = true;
             LightIndicator.SetBool("green", true);
         }
     }

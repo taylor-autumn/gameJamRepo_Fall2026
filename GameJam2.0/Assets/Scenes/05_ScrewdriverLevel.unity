@@ -1065,6 +1065,8 @@ Transform:
   - {fileID: 1519509782}
   - {fileID: 1018805289}
   - {fileID: 102909616}
+  - {fileID: 1790842251}
+  - {fileID: 1986916855}
   m_Father: {fileID: 1317299116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &324659246
@@ -1120,8 +1122,6 @@ Transform:
   - {fileID: 1956060824}
   - {fileID: 1844224158}
   - {fileID: 1577487}
-  - {fileID: 1790842251}
-  - {fileID: 1986916855}
   m_Father: {fileID: 1317299116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &332844382
@@ -15844,7 +15844,7 @@ GameObject:
   - component: {fileID: 619065723}
   m_Layer: 0
   m_Name: wirebox
-  m_TagString: Untagged
+  m_TagString: WireBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15949,7 +15949,7 @@ GameObject:
   - component: {fileID: 623723039}
   m_Layer: 0
   m_Name: vent1Start
-  m_TagString: Untagged
+  m_TagString: vent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16042,7 +16042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ventTP
   player: {fileID: 728294269}
   teleports: {fileID: 1374643142}
-  transitionAnimator: {fileID: 1051131966}
+  transitionAnimator: {fileID: 1329390202}
   ventingit: {fileID: 623723039}
   ventAudioClip: {fileID: 8300000, guid: 067ded5380bb2814db4e0cddef88c3dc, type: 3}
 --- !u!61 &623723037
@@ -16797,7 +16797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1852023636130421618, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: ToDisableExplodedColliders.Array.size
-      value: 23
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1852023636130421618, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: 'ToDisableExplodedColliders.Array.data[0]'
@@ -16891,6 +16891,14 @@ PrefabInstance:
       propertyPath: 'ToDisableExplodedColliders.Array.data[22]'
       value: 
       objectReference: {fileID: 1130713937}
+    - target: {fileID: 1852023636130421618, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
+      propertyPath: 'ToDisableExplodedColliders.Array.data[23]'
+      value: 
+      objectReference: {fileID: 1790842250}
+    - target: {fileID: 1852023636130421618, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
+      propertyPath: 'ToDisableExplodedColliders.Array.data[24]'
+      value: 
+      objectReference: {fileID: 1986916854}
     - target: {fileID: 1852023636130421618, guid: 43bd246443d209d44bfe1c6a553703f6, type: 3}
       propertyPath: ToDisablePreExplosionColliders.Array.size
       value: 10
@@ -97911,7 +97919,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.17098838}
+  m_Offset: {x: -1.5756989, y: -0.17098832}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -97921,7 +97929,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 4.214585}
+  m_Size: {x: 4.1513977, y: 4.214585}
   m_EdgeRadius: 0
 --- !u!114 &1631589894
 MonoBehaviour:
@@ -98480,7 +98488,7 @@ GameObject:
   - component: {fileID: 1790842251}
   - component: {fileID: 1790842252}
   m_Layer: 3
-  m_Name: Static Collider (25)
+  m_Name: Post Colliders (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98494,12 +98502,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790842250}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.31, y: -7.71, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 48.310005, y: -7.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 324659247}
+  m_Father: {fileID: 286470910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1790842252
 BoxCollider2D:
@@ -99175,7 +99183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can't get out until you complete this level. Only way is up!
+  m_text: You can't get out until you find the wire box and fix it! Only way is up!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9908af5e40850c84a8ca016b5f8efdd2, type: 2}
   m_sharedMaterial: {fileID: 6527336647303313699, guid: 9908af5e40850c84a8ca016b5f8efdd2, type: 2}
@@ -99549,7 +99557,7 @@ GameObject:
   - component: {fileID: 1986916855}
   - component: {fileID: 1986916856}
   m_Layer: 3
-  m_Name: Static Collider (26)
+  m_Name: Static Collider (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99563,12 +99571,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986916854}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.31, y: -7.71, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 48.310005, y: -7.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 324659247}
+  m_Father: {fileID: 286470910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1986916856
 BoxCollider2D:

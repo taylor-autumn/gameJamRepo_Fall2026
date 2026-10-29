@@ -25,6 +25,8 @@ TagManager:
   - leaveWrenchDoor
   - leaveScrewDoor
   - leaveUSBDoor
+  - WireBox
+  - vent
   layers:
   - Default
   - TransparentFX

@@ -17402,13 +17402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrokenPipe
   player: {fileID: 551026834}
-  hotSteam:
-  - {fileID: 876069509}
-  - {fileID: 2123708160}
-  - {fileID: 1581869627}
   wrenchAudioClip: {fileID: 8300000, guid: 15a55491c64057744b2629c8ab97c5a8, type: 3}
-  fixing: 0
   otherPipe: {fileID: 1620922940}
+  fixedPipe: 0
 --- !u!82 &298385495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17590,7 +17586,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.17098838}
+  m_Offset: {x: -1.4784241, y: -0.17098832}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -17600,7 +17596,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 4.214585}
+  m_Size: {x: 3.9568481, y: 4.214585}
   m_EdgeRadius: 0
 --- !u!114 &448872483
 MonoBehaviour:
@@ -90931,14 +90927,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrokenPipe
   player: {fileID: 551026834}
-  hotSteam:
-  - {fileID: 565869627}
-  - {fileID: 1455673817}
-  - {fileID: 1644339587}
-  - {fileID: 1061349260}
   wrenchAudioClip: {fileID: 8300000, guid: 15a55491c64057744b2629c8ab97c5a8, type: 3}
-  fixing: 0
   otherPipe: {fileID: 298385491}
+  fixedPipe: 0
 --- !u!82 &1620922944
 AudioSource:
   m_ObjectHideFlags: 0
@@ -91411,6 +91402,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3874223921516572022, guid: dc7b330d9726f954bbcc320f42ce78dd, type: 3}
+      propertyPath: doorAnim
+      value: 
+      objectReference: {fileID: 1736752060}
     - target: {fileID: 4357049828985098746, guid: dc7b330d9726f954bbcc320f42ce78dd, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
@@ -91427,6 +91422,11 @@ PrefabInstance:
 --- !u!4 &1736752059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2698123572745625209, guid: dc7b330d9726f954bbcc320f42ce78dd, type: 3}
+  m_PrefabInstance: {fileID: 1736752058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1736752060 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7692558301303873143, guid: dc7b330d9726f954bbcc320f42ce78dd, type: 3}
   m_PrefabInstance: {fileID: 1736752058}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950658830
