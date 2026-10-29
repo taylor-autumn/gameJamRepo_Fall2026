@@ -32,6 +32,7 @@ public class itemInteraction : MonoBehaviour
         {
             Debug.LogError("PLAYER CONTROL IS NULL FROM ITEM INTERACTION SCRIPT");
         }
+        playerStatus.instance.inputText.interactable = true;
 
     }
 
@@ -156,6 +157,10 @@ public class itemInteraction : MonoBehaviour
                 canTryDoor = true;
                 childOfTargetDoor = collision.gameObject;
             }
+            if (collision.CompareTag("WireBox")||collision.CompareTag("vent"))
+            {
+                interactBox.SetActive(true);
+            }
             //open screwdriver door
             if (collision.CompareTag("screwDoor") && playerStatus.instance.hasScrewdriver)
             {
@@ -200,7 +205,7 @@ public class itemInteraction : MonoBehaviour
                 childOfTargetDoor = collision.gameObject;
             }
             //leave usb boss level
-            if (collision.CompareTag("leaveUSBDoor") && playerStatus.instance.completedUSBLevel)
+            if (collision.CompareTag("leaveUSBDoor") && playerStatus.instance.hasUSB == true)
             {
                 interactBox.SetActive(true);
                 canTryDoor = true;
@@ -230,6 +235,10 @@ public class itemInteraction : MonoBehaviour
             canOpenLaptop = false;
             interactBox.SetActive(false);
         }
+        if (collision.CompareTag("WireBox")||collision.CompareTag("vent"))
+            {
+                interactBox.SetActive(false);
+            }
     }
 
     public void checkPassword()
