@@ -164,6 +164,8 @@ MonoBehaviour:
   jumpSFX: {fileID: 8300000, guid: aae02087d2668994c8fa97732c1e0034, type: 3}
   dash: {fileID: 0}
   die: {fileID: 0}
+  fallOffMapSFX: {fileID: 8300000, guid: 8afb0c3796869754c86baf02d6f7f6f6, type: 3}
+  dieFromEnemy: {fileID: 8300000, guid: e690b35032a75524cae623b36655d958, type: 3}
   collect: {fileID: 0}
   win: {fileID: 0}
   bgm: {fileID: 0}

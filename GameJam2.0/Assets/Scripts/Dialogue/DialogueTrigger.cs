@@ -12,6 +12,19 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject gameplayUI;
     private bool uiWasActive;
 
+
+    private void Awake()
+    {
+        if (gameplayUI = null)
+        {
+            gameplayUI = GameObject.Find("charUi");
+        }
+        else
+        {
+            return;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerControl detectedPlayer =

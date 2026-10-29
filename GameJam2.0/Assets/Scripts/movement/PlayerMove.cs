@@ -105,6 +105,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private AudioClip jumpSFX;
     [SerializeField] private AudioSource dash;
     [SerializeField] private AudioSource die;
+    [SerializeField] private AudioClip fallOffMapSFX;
+    [SerializeField] private AudioClip dieFromEnemy;
     [SerializeField] private AudioSource collect;
     [SerializeField] private AudioSource win;
     [SerializeField] private AudioSource bgm;
@@ -595,6 +597,8 @@ public class PlayerControl : MonoBehaviour
         if (transform.position.y <= -6f)
         {
             isDead = true;
+
+            audioSource.PlayOneShot(fallOffMapSFX);
         }
 
         // other dead
@@ -676,6 +680,7 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") && !isRespawning)
         {
             isDead = true;
+            audioSource.PlayOneShot(dieFromEnemy);
             DieDetect();
         }
 

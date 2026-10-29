@@ -8,6 +8,11 @@ public class CutscenePictures : MonoBehaviour
     [SerializeField] private SpriteRenderer picture;
     [SerializeField] private List<Sprite> pictures = new List<Sprite>();
 
+    [Header("BOMB")]
+    [SerializeField] private Sprite soundTriggerPicture;
+    [SerializeField] private AudioClip pictureSound;
+    [SerializeField] private AudioSource audioSource;
+
     private int currentIndex = -1;
     private bool commandsRegistered;
 
@@ -46,6 +51,12 @@ public class CutscenePictures : MonoBehaviour
         currentIndex = index;
         picture.sprite = pictures[index];
         picture.gameObject.SetActive(true);
+        if (picture.sprite == soundTriggerPicture &&
+    pictureSound != null &&
+    audioSource != null)
+        {
+            audioSource.PlayOneShot(pictureSound);
+        }
     }
 
     private void NextPicture()
