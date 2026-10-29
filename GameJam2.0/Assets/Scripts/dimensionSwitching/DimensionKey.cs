@@ -17,7 +17,6 @@ public class DimensionKey : MonoBehaviour
     {
         scaleChange = new Vector3(-0.01f, -0.01f);
     }
-
     // Update is called once per frame
     void Update()
     {
