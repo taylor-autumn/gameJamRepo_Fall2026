@@ -17,6 +17,7 @@ public class itemInteraction : MonoBehaviour
     [Header("Audio Sources")]
     public AudioSource correctSound;
     public AudioClip MetalDoorSound;
+    public AudioClip pickupSound;
 
     [Header("Computer Stuff")]
     public bool canOpenLaptop = false;
@@ -101,6 +102,7 @@ public class itemInteraction : MonoBehaviour
             print("Picked up keycard");
             playerStatus.instance.hasKeyCard = true;
             playerStatus.instance.updateUi(); //update ui;
+            correctSound.PlayOneShot(pickupSound);
         }
         //if collides with screwdriver
         if (collision.CompareTag("screwdriver"))
@@ -110,6 +112,7 @@ public class itemInteraction : MonoBehaviour
             print("Picked up screwedriver");
             playerStatus.instance.hasScrewdriver = true;
             playerStatus.instance.updateUi(); //update ui;
+            correctSound.PlayOneShot(pickupSound);
         }
         //if collides with wrench
         if (collision.CompareTag("wrench"))
@@ -119,6 +122,7 @@ public class itemInteraction : MonoBehaviour
             print("Picked up wrench");
             playerStatus.instance.hasWrench = true;
             playerStatus.instance.updateUi(); //update ui;
+            correctSound.PlayOneShot(pickupSound);
         }
         //if collides with flashlight
         if (collision.CompareTag("flashlight"))
@@ -128,6 +132,7 @@ public class itemInteraction : MonoBehaviour
             print("Picked up flashlight");
             playerStatus.instance.hasFlashlight = true;
             playerStatus.instance.updateUi(); //update ui;
+            correctSound.PlayOneShot(pickupSound);
         }
         //if collides with usb
         if (collision.CompareTag("usb"))
@@ -137,6 +142,7 @@ public class itemInteraction : MonoBehaviour
             print("Picked up usb");
             playerStatus.instance.hasUSB = true;
             playerStatus.instance.updateUi(); //update ui;
+            correctSound.PlayOneShot(pickupSound);
         }
 
         //=================================collide with areas stuff==============================

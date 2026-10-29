@@ -243,6 +243,7 @@ MonoBehaviour:
   playerControl: {fileID: 0}
   correctSound: {fileID: 7495379157487724429}
   MetalDoorSound: {fileID: 8300000, guid: 7a4a414fcd28c447b9e6a42a0a0a3e6b, type: 3}
+  pickupSound: {fileID: 8300000, guid: ab1ba5442871ce543a8007c967ed24a9, type: 3}
   canOpenLaptop: 0
   decoded: 0
 --- !u!82 &7495379157487724429
