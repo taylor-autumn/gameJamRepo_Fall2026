@@ -87,21 +87,22 @@ Scientist A: Shit, this is NOT good. We’ve got to get out of here. Tell the si
 <<nextOne>>
 That's it, that's what I need! I can fix this!
 
-
-
-//title: C4S1
-<<nextOne>>
-(Image of reactor epic)
-
+<<hidePicture>>
+<<teleportToGE1>>
+<<stop>>
 ===
+
+
 
 title: GE1
 ---
-<<showPicture 0>>
+<<showPicture 11>>
 I did it! 
 Oh…
 With no explosion, I won't exist anymore. 
+<<nextOne>>
 I can already feel my timeline slipping away…
+<<hidePicture>>
 ===
 
 title: GD2

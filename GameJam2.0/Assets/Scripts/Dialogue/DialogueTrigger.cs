@@ -13,15 +13,22 @@ public class DialogueTrigger : MonoBehaviour
     private bool uiWasActive;
 
 
+
     private void Awake()
     {
-        if (gameplayUI = null)
+        FindGameplayUI();
+    }
+
+    private void FindGameplayUI()
+    {
+        if (gameplayUI == null)
         {
             gameplayUI = GameObject.Find("charUi");
         }
-        else
+
+        if (gameplayUI == null)
         {
-            return;
+            Debug.LogWarning("Can not find charUi, the ui will not be hiden during cutscene", this);
         }
     }
 
