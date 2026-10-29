@@ -10,6 +10,7 @@ public class USbOveride : MonoBehaviour
     private AudioSource myAudioSource;
     public AudioClip shutDownnoise;
     public GameObject DimensionMask;
+    public GameObject endingTriggerCollider;
     void Start()
     {
         NewCamera.enabled = false;
@@ -40,6 +41,7 @@ public class USbOveride : MonoBehaviour
 
     void finaleDone()
     {
+        endingTriggerCollider.SetActive(true);
         print("done");
     }
 }
