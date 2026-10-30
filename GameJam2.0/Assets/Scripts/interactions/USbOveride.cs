@@ -53,9 +53,11 @@ public class USbOveride : MonoBehaviour
 
     void finaleDone()
     {
+        Invoke("lastdelay", 1f);
+    }
+
+    void lastdelay()
+    {
         endingTriggerCollider.SetActive(true);
-        NewCamera.enabled = false;
-        DialCam.enabled = true;
-        print("done");
     }
 }

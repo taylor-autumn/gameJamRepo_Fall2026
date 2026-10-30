@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using UnityEngine.SceneManagement;
 
 public class CutscenePictures : MonoBehaviour
 {

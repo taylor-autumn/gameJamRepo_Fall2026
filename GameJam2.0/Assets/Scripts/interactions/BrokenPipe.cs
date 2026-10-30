@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BrokenPipe : MonoBehaviour
@@ -7,6 +8,7 @@ public class BrokenPipe : MonoBehaviour
     private AudioSource myAudioSource;
     public GameObject otherPipe;
     public bool fixedPipe = false;
+    public List<GameObject> steam;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +26,10 @@ public class BrokenPipe : MonoBehaviour
                 myAudioSource.PlayOneShot(wrenchAudioClip);
                 GetComponent<Collider2D>().enabled = false;
                 fixedPipe = true;
+                foreach (GameObject obj in steam)
+                {
+                    Destroy(obj);
+                }
                 if (otherPipe.GetComponent<BrokenPipe>().fixedPipe == true)
                 {
                     GoalLight.pipeCompleted = true;
